@@ -8,25 +8,16 @@
   <link rel="dns-prefetch" href="http://liuyu595.github.io">
   <title>”ES6入门笔记（一）“ | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="正文:    之前我们接触到的js主要是由ECMA DOM BOM组成的。ES6就是之前的一个版本的迭代。    ECMA是标准，JS是实现者；换句话说还有可能有其他的版本来实现ECMA.        目前浏览器：主要分为两种一个是高级低级浏览器：主要支持ES3.1;高级浏览器正在从ES5到ES6过度。
-&amp;lt;!--more--&amp;gt;
-直接在node里面使用：
-    1.直接用，需要在相应">
+  <meta name="description" content="摘要：    之前我们接触到的js主要是由ECMA DOM BOM组成的。ES6就是之前的一个版本的迭代。    ECMA是标准，JS是实现者；换句话说还有可能有其他的版本来实现ECMA.        目前浏览器：主要分为两种一个是高级低级浏览器：主要支持ES3.1;高级浏览器正在从ES5到ES6过度。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="”ES6入门笔记（一）“">
 <meta property="og:url" content="http://liuyu595.github.io/2017/03/12/”ES6入门笔记（一）“/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="正文:    之前我们接触到的js主要是由ECMA DOM BOM组成的。ES6就是之前的一个版本的迭代。    ECMA是标准，JS是实现者；换句话说还有可能有其他的版本来实现ECMA.        目前浏览器：主要分为两种一个是高级低级浏览器：主要支持ES3.1;高级浏览器正在从ES5到ES6过度。
-&amp;lt;!--more--&amp;gt;
-直接在node里面使用：
-    1.直接用，需要在相应">
-<meta property="og:updated_time" content="2017-03-12T05:34:48.000Z">
+<meta property="og:description" content="摘要：    之前我们接触到的js主要是由ECMA DOM BOM组成的。ES6就是之前的一个版本的迭代。    ECMA是标准，JS是实现者；换句话说还有可能有其他的版本来实现ECMA.        目前浏览器：主要分为两种一个是高级低级浏览器：主要支持ES3.1;高级浏览器正在从ES5到ES6过度。">
+<meta property="og:updated_time" content="2017-03-12T05:36:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="”ES6入门笔记（一）“">
-<meta name="twitter:description" content="正文:    之前我们接触到的js主要是由ECMA DOM BOM组成的。ES6就是之前的一个版本的迭代。    ECMA是标准，JS是实现者；换句话说还有可能有其他的版本来实现ECMA.        目前浏览器：主要分为两种一个是高级低级浏览器：主要支持ES3.1;高级浏览器正在从ES5到ES6过度。
-&amp;lt;!--more--&amp;gt;
-直接在node里面使用：
-    1.直接用，需要在相应">
+<meta name="twitter:description" content="摘要：    之前我们接触到的js主要是由ECMA DOM BOM组成的。ES6就是之前的一个版本的迭代。    ECMA是标准，JS是实现者；换句话说还有可能有其他的版本来实现ECMA.        目前浏览器：主要分为两种一个是高级低级浏览器：主要支持ES3.1;高级浏览器正在从ES5到ES6过度。">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -252,13 +243,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>正文:<br>    之前我们接触到的js主要是由ECMA DOM BOM组成的。ES6就是之前的一个版本的迭代。<br>    ECMA是标准，JS是实现者；换句话说还有可能有其他的版本来实现ECMA.<br>        目前浏览器：主要分为两种一个是高级低级浏览器：主要支持ES3.1;高级浏览器正在从ES5到ES6过度。</p>
-<pre><code>&lt;!--more--&gt;
-直接在node里面使用：
-    1.直接用，需要在相应的js文件中头部添加‘ues strict’;
-    2.nede --harmony_destructuring xxx.js;
-
-定义变量——let(目前位置已经被浏览器支持，不用引入js)；
+        <p>摘要：<br>    之前我们接触到的js主要是由ECMA DOM BOM组成的。ES6就是之前的一个版本的迭代。<br>    ECMA是标准，JS是实现者；换句话说还有可能有其他的版本来实现ECMA.<br>        目前浏览器：主要分为两种一个是高级低级浏览器：主要支持ES3.1;高级浏览器正在从ES5到ES6过度。<br> <a id="more"></a><br> 正文:<br>    直接在node里面使用：<br>        1.直接用，需要在相应的js文件中头部添加‘ues strict’;<br>        2.nede –harmony_destructuring xxx.js;</p>
+<pre><code>定义变量——let(目前位置已经被浏览器支持，不用引入js)；
 代码块：{}包起来的代码叫代码块；
 </code></pre><p>例如：{<br>        let a=12; alert(a);  //是可以在浏览器中拿到的<br>    }<br>        alert(a)//这里的这个a 在浏览器中是不能被拿到的。<br>    所以用{}包起来后就形成了一个作用域，这个作用域之能在相应的块中实现；<br>    let 声明的变量与 var声明的变量不同的是，var只有在函数体中才有作用域，而let与此不同；</p>
 <pre><code>封闭空间的问题：
@@ -504,11 +490,11 @@ var str=``   这两个单引号就是 数字1键前面的那个东西～
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ES6语法</a>
+                <a href="javascript:void(0)" class="js-tag color2">放眼看世界 世界都亮了</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">放眼看世界 世界都亮了</a>
+                <a href="javascript:void(0)" class="js-tag color1">ES6语法</a>
               </li>
             
             <div class="clearfix"></div>
