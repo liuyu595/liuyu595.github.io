@@ -6,14 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://liuyu595.github.io">
-  <title>Archives | 我的博客</title>
+  <title>”ES6入门笔记（一）“ | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="我的博客">
-<meta property="og:url" content="http://liuyu595.github.io/archives/index.html">
+  <meta name="description" content="正文:    之前我们接触到的js主要是由ECMA DOM BOM组成的。ES6就是之前的一个版本的迭代。    ECMA是标准，JS是实现者；换句话说还有可能有其他的版本来实现ECMA.        目前浏览器：主要分为两种一个是高级低级浏览器：主要支持ES3.1;高级浏览器正在从ES5到ES6过度。
+&amp;lt;!--more--&amp;gt;
+直接在node里面使用：
+    1.直接用，需要在相应">
+<meta property="og:type" content="article">
+<meta property="og:title" content="”ES6入门笔记（一）“">
+<meta property="og:url" content="http://liuyu595.github.io/2017/03/12/”ES6入门笔记（一）“/index.html">
 <meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="正文:    之前我们接触到的js主要是由ECMA DOM BOM组成的。ES6就是之前的一个版本的迭代。    ECMA是标准，JS是实现者；换句话说还有可能有其他的版本来实现ECMA.        目前浏览器：主要分为两种一个是高级低级浏览器：主要支持ES3.1;高级浏览器正在从ES5到ES6过度。
+&amp;lt;!--more--&amp;gt;
+直接在node里面使用：
+    1.直接用，需要在相应">
+<meta property="og:updated_time" content="2017-03-12T05:34:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的博客">
+<meta name="twitter:title" content="”ES6入门笔记（一）“">
+<meta name="twitter:description" content="正文:    之前我们接触到的js主要是由ECMA DOM BOM组成的。ES6就是之前的一个版本的迭代。    ECMA是标准，JS是实现者；换句话说还有可能有其他的版本来实现ECMA.        目前浏览器：主要分为两种一个是高级低级浏览器：主要支持ES3.1;高级浏览器正在从ES5到ES6过度。
+&amp;lt;!--more--&amp;gt;
+直接在node里面使用：
+    1.直接用，需要在相应">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -219,36 +232,86 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-”ES6入门笔记（一）“" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/12/”ES6入门笔记（一）“/" class="archive-article-date">
-  	<time datetime="2017-03-12T03:03:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/12/”ES6入门笔记（一）“/">”ES6入门笔记（一）“</a>
+    <h1 class="article-title" itemprop="name">
+      ”ES6入门笔记（一）“
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/03/12/”ES6入门笔记（一）“/" class="archive-article-date">
+  	<time datetime="2017-03-12T03:03:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>正文:<br>    之前我们接触到的js主要是由ECMA DOM BOM组成的。ES6就是之前的一个版本的迭代。<br>    ECMA是标准，JS是实现者；换句话说还有可能有其他的版本来实现ECMA.<br>        目前浏览器：主要分为两种一个是高级低级浏览器：主要支持ES3.1;高级浏览器正在从ES5到ES6过度。</p>
+<pre><code>&lt;!--more--&gt;
+直接在node里面使用：
+    1.直接用，需要在相应的js文件中头部添加‘ues strict’;
+    2.nede --harmony_destructuring xxx.js;
+
+定义变量——let(目前位置已经被浏览器支持，不用引入js)；
+代码块：{}包起来的代码叫代码块；
+</code></pre><p>例如：{<br>        let a=12; alert(a);  //是可以在浏览器中拿到的<br>    }<br>        alert(a)//这里的这个a 在浏览器中是不能被拿到的。<br>    所以用{}包起来后就形成了一个作用域，这个作用域之能在相应的块中实现；<br>    let 声明的变量与 var声明的变量不同的是，var只有在函数体中才有作用域，而let与此不同；</p>
+<pre><code>封闭空间的问题：
+ 之前用var声明一个变量的时候：
+</code></pre><p>for(var i=; i&lt;aBtn.length; i++){<br>    (function(i){<br>        aBtn[i].onclick=function(){<br>        alert(i);<br>            }<br>        })(i);<br>    };<br>    // 这样写的原因是var 没有一个封闭空间所以要用一个自运行函数在包裹它；<br>    那么现在的let 是什么样子呢？<br>for(let i=0; i&lt;aBtn.length;i++){<br>    aBtn[i].onclick=function(){<br>    alert(i);<br>}</p>
+<pre><code>如果出现了一个大组件怎么办呢？怎么办呢？怎么办呢～！逗比呢？不是有const来定义敞亮么？常量一旦赋值就没有办法再修改了呀～！
+————————————————————————————————
+下面说下字符串链接：（个人感觉没有什么区别，估计是之前用习惯了吧）
+反单引号 字符串模版 ：
+var str=``   这两个单引号就是 数字1键前面的那个东西～
+·阿斯顿$(变量名)风格化`
+
+————————————————————————————————
+解构赋值：var [a,b,c]=[12,3,5]
+那么json的解构赋值就是：var {a,b,c}={a:2,b:3,c:3}; 
+注意：解构赋值时 要对应名字～！！！！切记～切记～！
+模式匹配：——————左边和右边的样式一样
+    var [a,[b,c],d]=[12,[1,2],5];
+此外补充一点解构赋值是可以给默认值的：
+语法：var {time=12,id=0}={}
+然而之前的方法是这样的：var json={}; var a=json.a||12
+
+
+今天就到此为止吧～ 还是那句话，每天多学一点，就能少打一行代码～！
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -260,7 +323,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -273,97 +336,86 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://liuyu595.github.io/2017/03/12/”ES6入门笔记（一）“/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/09/see-word/" class="archive-article-date">
-  	<time datetime="2017-03-09T03:42:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/09/see-word/">放眼看世界</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">放眼看世界 世界都亮了</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/人生如无烦心事便是人生好时节/" class="article-tag-list-link color1">人生如无烦心事 便是人生好时节</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/09/see-word/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">放眼看世界</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/09/hello-world/" class="archive-article-date">
-  	<time datetime="2017-03-09T02:49:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/09/hello-world/">Hello World</a>
-    </h1>
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -386,8 +438,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
