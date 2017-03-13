@@ -8,16 +8,31 @@
   <link rel="dns-prefetch" href="https://liuyu595.github.io">
   <title>hexo new ”ES6入门笔记（二） | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要：    复制数组————spread、Map、for-of循环">
+  <meta name="description" content="摘要：    复制数组————spread、Map、for-of循环
+正文：
+数组复制
+举栗子
+
+12345var arr = [1,2,3];var arr2=arr;arr2.pop();console.log(arr, arr2);//arr2删除最后一个元素时，arr也会受到影响">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo new ”ES6入门笔记（二）">
 <meta property="og:url" content="https://liuyu595.github.io/2017/03/12/ES6入门笔记（二）/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="摘要：    复制数组————spread、Map、for-of循环">
-<meta property="og:updated_time" content="2017-03-12T09:31:13.000Z">
+<meta property="og:description" content="摘要：    复制数组————spread、Map、for-of循环
+正文：
+数组复制
+举栗子
+
+12345var arr = [1,2,3];var arr2=arr;arr2.pop();console.log(arr, arr2);//arr2删除最后一个元素时，arr也会受到影响">
+<meta property="og:updated_time" content="2017-03-13T14:25:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo new ”ES6入门笔记（二）">
-<meta name="twitter:description" content="摘要：    复制数组————spread、Map、for-of循环">
+<meta name="twitter:description" content="摘要：    复制数组————spread、Map、for-of循环
+正文：
+数组复制
+举栗子
+
+12345var arr = [1,2,3];var arr2=arr;arr2.pop();console.log(arr, arr2);//arr2删除最后一个元素时，arr也会受到影响">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -195,7 +210,44 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要：<br>    复制数组————spread、Map、for-of循环<br><a id="more"></a></p>
+        <p>摘要：<br>    复制数组————spread、Map、for-of循环</p>
+<p>正文：</p>
+<h2 id="数组复制"><a href="#数组复制" class="headerlink" title="数组复制"></a>数组复制</h2><ul>
+<li>举栗子</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">var</span> arr2=arr;</div><div class="line">arr2.pop();</div><div class="line"><span class="built_in">console</span>.log(arr, arr2);</div><div class="line"><span class="comment">//arr2删除最后一个元素时，arr也会受到影响</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>怎么才能不让我们的arr受到牵连呢？</p>
+<ul>
+<li>再举一栗子—–循环</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">var</span> arr2=[];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;arr.length; i++)&#123;</div><div class="line">arr2[i]=arr[i];</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(arr, arr2);</div><div class="line"><span class="comment">//arr这时候是不会受到任何影响的；但是这种方法比较繁琐；</span></div></pre></td></tr></table></figure>
+<ul>
+<li>下面在举一个板栗吧～！</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">var</span> arr2=<span class="built_in">Array</span>.from(arr);</div><div class="line">arr2.pop();</div><div class="line"><span class="built_in">console</span>.log(arr, arr2);</div><div class="line"><span class="comment">//这个板栗还是可以的，简单多了；</span></div></pre></td></tr></table></figure>
+<p><strong>科普下Array.from(   )</strong></p>
+<blockquote>
+<p>  <strong>es6</strong> 新特性中 Array 类多了一个静态方法 from ，这个方法作用是将一个 ArrayLike 对象或者 Iterable 对象转换成一个 Array。所谓 ArrayLike 对象指具有数组某些行为的对象，表现出来的特征就是具有 length 属性。 </p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line"><span class="string">"0"</span> : <span class="number">1</span>,</div><div class="line"><span class="attr">length</span>: <span class="number">1</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>这一类对象不能调用数组所具有的方法(push/forEach/map之类)，最常见的有两种：DOM中的 NodeList 和函数中的 arguments 。<br>在平常开发中，我们经常遇到需要将这两种对象转化为真正数组的场景，一般我们是这么写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var args = [].slice.call(arguments);</div><div class="line">var imgs = [].slice.call(document.querySelectorAll(&apos;img&apos;));</div></pre></td></tr></table></figure></p>
+<p>现在有了<strong>Array.from</strong>后我们可以这样写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var args = Array.from(arguments);</div><div class="line">var imgs = Array.from(document.querySelectorAll(&apos;img&apos;));</div><div class="line">//不考虑兼容性的时候我们可以这样写</div></pre></td></tr></table></figure></p>
+<p>下面言归正传吧：接着写我们的数组～接着举例子！</p>
+<ul>
+<li>新鲜板栗来了～！好吃不贵<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">var</span> arr2=[...arr];</div><div class="line">arr2.pop();</div><div class="line"><span class="comment">//前面的这三个点——“超引用”这么叫吧</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params">...args</span>)</span>&#123;</div><div class="line">args.push(<span class="number">5</span>);</div><div class="line"><span class="built_in">console</span>.log(args);</div><div class="line">&#125;</div><div class="line">show(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</div><div class="line"><span class="comment">//完美解决</span></div></pre></td></tr></table></figure>
+<p>##循环</p>
+<blockquote>
+<p>es6新增了一个 for of 循环，那么这个循环的目的：是遍历（迭代、循环）这个对象，表现有点类似for in。但是不能循环json,其真正的目的是循环 map对象的。</p>
+<ul>
+<li>来个代码看看吧<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr=[<span class="string">'apple'</span>,<span class="string">'banana'</span>,<span class="string">'orange'</span>,<span class="string">'pear'</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">of</span> arr)&#123;</div><div class="line"><span class="built_in">console</span>.log(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>注：</strong>上述打印出来的结果跟普通的for in 打印出来的结果不一样，for in打印出来是数组的下标，而for of 打印出来却是相对应的水果名字。</p>
+</blockquote>
 
       
 
