@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://liuyu595.github.io">
-  <title>”ES6入门笔记（一）“ | 我的博客</title>
+  <title>hexo new ”ES6入门笔记（二） | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要：    之前我们接触到的js主要是由ECMA DOM BOM组成的。ES6就是之前的一个版本的迭代。    ECMA是标准，JS是实现者；换句话说还有可能有其他的版本来实现ECMA.        目前浏览器：主要分为两种一个是高级低级浏览器：主要支持ES3.1;高级浏览器正在从ES5到ES6过度。">
+  <meta name="description" content="摘要：    复制数组————spread、Map、for-of循环">
 <meta property="og:type" content="article">
-<meta property="og:title" content="”ES6入门笔记（一）“">
-<meta property="og:url" content="https://liuyu595.github.io/2017/03/12/”ES6入门笔记（一）“/index.html">
+<meta property="og:title" content="hexo new ”ES6入门笔记（二）">
+<meta property="og:url" content="https://liuyu595.github.io/2017/03/12/ES6入门笔记（二）/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="摘要：    之前我们接触到的js主要是由ECMA DOM BOM组成的。ES6就是之前的一个版本的迭代。    ECMA是标准，JS是实现者；换句话说还有可能有其他的版本来实现ECMA.        目前浏览器：主要分为两种一个是高级低级浏览器：主要支持ES3.1;高级浏览器正在从ES5到ES6过度。">
-<meta property="og:updated_time" content="2017-03-12T05:37:18.000Z">
+<meta property="og:description" content="摘要：    复制数组————spread、Map、for-of循环">
+<meta property="og:updated_time" content="2017-03-12T09:31:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="”ES6入门笔记（一）“">
-<meta name="twitter:description" content="摘要：    之前我们接触到的js主要是由ECMA DOM BOM组成的。ES6就是之前的一个版本的迭代。    ECMA是标准，JS是实现者；换句话说还有可能有其他的版本来实现ECMA.        目前浏览器：主要分为两种一个是高级低级浏览器：主要支持ES3.1;高级浏览器正在从ES5到ES6过度。">
+<meta name="twitter:title" content="hexo new ”ES6入门笔记（二）">
+<meta name="twitter:description" content="摘要：    复制数组————spread、Map、for-of循环">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -46,7 +46,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img lazy-src="/favicon.png" class="js-avatar">
+			<img src="/favicon.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">奔向没有终点的旅程</a></h1>
@@ -175,53 +175,28 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-”ES6入门笔记（一）“" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-ES6入门笔记（二）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      ”ES6入门笔记（一）“
+      hexo new ”ES6入门笔记（二）
     </h1>
   
 
         
-        <a href="/2017/03/12/”ES6入门笔记（一）“/" class="archive-article-date">
-  	<time datetime="2017-03-12T03:03:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
+        <a href="/2017/03/12/ES6入门笔记（二）/" class="archive-article-date">
+  	<time datetime="2017-03-12T06:17:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要：<br>    之前我们接触到的js主要是由ECMA DOM BOM组成的。ES6就是之前的一个版本的迭代。<br>    ECMA是标准，JS是实现者；换句话说还有可能有其他的版本来实现ECMA.<br>        目前浏览器：主要分为两种一个是高级低级浏览器：主要支持ES3.1;高级浏览器正在从ES5到ES6过度。<br> <a id="more"></a><br> 正文:<br>    直接在node里面使用：<br>        1.直接用，需要在相应的js文件中头部添加‘ues strict’;<br>        2.nede –harmony_destructuring xxx.js;</p>
-<pre><code>定义变量——let(目前位置已经被浏览器支持，不用引入js)；
-代码块：{}包起来的代码叫代码块；
-</code></pre><p>例如：{<br>        let a=12; alert(a);  //是可以在浏览器中拿到的<br>    }<br>        alert(a)//这里的这个a 在浏览器中是不能被拿到的。<br>    所以用{}包起来后就形成了一个作用域，这个作用域之能在相应的块中实现；<br>    let 声明的变量与 var声明的变量不同的是，var只有在函数体中才有作用域，而let与此不同；</p>
-<pre><code>封闭空间的问题：
- 之前用var声明一个变量的时候：
-</code></pre><p>for(var i=; i&lt;aBtn.length; i++){<br>    (function(i){<br>        aBtn[i].onclick=function(){<br>        alert(i);<br>            }<br>        })(i);<br>    };<br>    // 这样写的原因是var 没有一个封闭空间所以要用一个自运行函数在包裹它；<br>    那么现在的let 是什么样子呢？<br>for(let i=0; i&lt;aBtn.length;i++){<br>    aBtn[i].onclick=function(){<br>    alert(i);<br>}</p>
-<pre><code>如果出现了一个大组件怎么办呢？怎么办呢？怎么办呢～！逗比呢？不是有const来定义敞亮么？常量一旦赋值就没有办法再修改了呀～！
-————————————————————————————————
-下面说下字符串链接：（个人感觉没有什么区别，估计是之前用习惯了吧）
-反单引号 字符串模版 ：
-var str=``   这两个单引号就是 数字1键前面的那个东西～
-·阿斯顿$(变量名)风格化`
+        <p>摘要：<br>    复制数组————spread、Map、for-of循环<br><a id="more"></a></p>
 
-————————————————————————————————
-解构赋值：var [a,b,c]=[12,3,5]
-那么json的解构赋值就是：var {a,b,c}={a:2,b:3,c:3}; 
-注意：解构赋值时 要对应名字～！！！！切记～切记～！
-模式匹配：——————左边和右边的样式一样
-    var [a,[b,c],d]=[12,[1,2],5];
-此外补充一点解构赋值是可以给默认值的：
-语法：var {time=12,id=0}={}
-然而之前的方法是这样的：var json={}; var a=json.a||12
-
-
-今天就到此为止吧～ 还是那句话，每天多学一点，就能少打一行代码～！
-</code></pre>
       
 
       
@@ -322,7 +297,7 @@ var str=``   这两个单引号就是 数字1键前面的那个东西～
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://liuyu595.github.io/2017/03/12/”ES6入门笔记（一）“/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://liuyu595.github.io/2017/03/12/ES6入门笔记（二）/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -336,18 +311,18 @@ var str=``   这两个单引号就是 数字1键前面的那个东西～
   
 <nav id="article-nav">
   
-    <a href="/2017/03/12/hexo-new-”ES6入门笔记（二）/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/13/hexo之入门后填坑（一）/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          hexo new ”ES6入门笔记（二）
+          hexo之入门后填坑(一)
         
       </div>
     </a>
   
   
-    <a href="/2017/03/09/see-word/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">放眼看世界</div>
+    <a href="/2017/03/12/ES6入门笔记（一）“/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">”ES6入门笔记（一）“</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -452,6 +427,10 @@ var str=``   这两个单引号就是 数字1键前面的那个东西～
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ES6语法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
