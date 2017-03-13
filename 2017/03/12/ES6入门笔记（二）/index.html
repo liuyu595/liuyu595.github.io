@@ -6,7 +6,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://liuyu595.github.io">
-  <title>hexo new ”ES6入门笔记（二） | 我的博客</title>
+  <title>ES6入门笔记（二） | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="摘要：    复制数组————spread、Map、for-of循环
 正文：
@@ -15,7 +15,7 @@
 
 12345var arr = [1,2,3];var arr2=arr;arr2.pop();console.log(arr, arr2);//arr2删除最后一个元素时，arr也会受到影响">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo new ”ES6入门笔记（二）">
+<meta property="og:title" content="ES6入门笔记（二）">
 <meta property="og:url" content="https://liuyu595.github.io/2017/03/12/ES6入门笔记（二）/index.html">
 <meta property="og:site_name" content="我的博客">
 <meta property="og:description" content="摘要：    复制数组————spread、Map、for-of循环
@@ -24,9 +24,9 @@
 举栗子
 
 12345var arr = [1,2,3];var arr2=arr;arr2.pop();console.log(arr, arr2);//arr2删除最后一个元素时，arr也会受到影响">
-<meta property="og:updated_time" content="2017-03-13T14:25:51.000Z">
+<meta property="og:updated_time" content="2017-03-13T14:31:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo new ”ES6入门笔记（二）">
+<meta name="twitter:title" content="ES6入门笔记（二）">
 <meta name="twitter:description" content="摘要：    复制数组————spread、Map、for-of循环
 正文：
 数组复制
@@ -197,7 +197,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      hexo new ”ES6入门笔记（二）
+      ES6入门笔记（二）
     </h1>
   
 
@@ -239,8 +239,7 @@
 </li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params">...args</span>)</span>&#123;</div><div class="line">args.push(<span class="number">5</span>);</div><div class="line"><span class="built_in">console</span>.log(args);</div><div class="line">&#125;</div><div class="line">show(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</div><div class="line"><span class="comment">//完美解决</span></div></pre></td></tr></table></figure>
-<p>##循环</p>
-<blockquote>
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><blockquote>
 <p>es6新增了一个 for of 循环，那么这个循环的目的：是遍历（迭代、循环）这个对象，表现有点类似for in。但是不能循环json,其真正的目的是循环 map对象的。</p>
 <ul>
 <li>来个代码看看吧<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr=[<span class="string">'apple'</span>,<span class="string">'banana'</span>,<span class="string">'orange'</span>,<span class="string">'pear'</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">of</span> arr)&#123;</div><div class="line"><span class="built_in">console</span>.log(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
