@@ -8,22 +8,22 @@
   <link rel="dns-prefetch" href="https://liuyu595.github.io">
   <title>ES6入门笔记（三） | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要：复制数组————spread、Map、for-of循环
+  <meta name="description" content="摘要：箭头函数、面向对象、继承。
 正文：
-箭头函数 =&amp;gt;不多说直接一个栗子：12345678window.onload=()=&amp;gt;&amp;#123;var oBox=document.getElementById(&quot;box&quot;);oBox.onclivk=()=&amp;gt;&amp;#123;//alert(this);//这时这里的this指的是window,所有没有办法thi">
+箭头函数 =&amp;gt;不多说直接一个栗子：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6入门笔记（三）">
 <meta property="og:url" content="https://liuyu595.github.io/2017/03/14/ES6入门笔记（三）“/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="摘要：复制数组————spread、Map、for-of循环
+<meta property="og:description" content="摘要：箭头函数、面向对象、继承。
 正文：
-箭头函数 =&amp;gt;不多说直接一个栗子：12345678window.onload=()=&amp;gt;&amp;#123;var oBox=document.getElementById(&quot;box&quot;);oBox.onclivk=()=&amp;gt;&amp;#123;//alert(this);//这时这里的this指的是window,所有没有办法thi">
-<meta property="og:updated_time" content="2017-03-14T14:58:46.000Z">
+箭头函数 =&amp;gt;不多说直接一个栗子：">
+<meta property="og:updated_time" content="2017-03-14T15:02:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6入门笔记（三）">
-<meta name="twitter:description" content="摘要：复制数组————spread、Map、for-of循环
+<meta name="twitter:description" content="摘要：箭头函数、面向对象、继承。
 正文：
-箭头函数 =&amp;gt;不多说直接一个栗子：12345678window.onload=()=&amp;gt;&amp;#123;var oBox=document.getElementById(&quot;box&quot;);oBox.onclivk=()=&amp;gt;&amp;#123;//alert(this);//这时这里的this指的是window,所有没有办法thi">
+箭头函数 =&amp;gt;不多说直接一个栗子：">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -201,9 +201,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要：<br>复制数组————spread、Map、for-of循环</p>
+        <p>摘要：<br>箭头函数、面向对象、继承。</p>
 <p>正文：</p>
-<h2 id="箭头函数-gt"><a href="#箭头函数-gt" class="headerlink" title="箭头函数 =&gt;"></a>箭头函数 =&gt;</h2><p>不多说直接一个栗子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line"><span class="keyword">var</span> oBox=<span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);</div><div class="line">oBox.onclivk=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line"><span class="comment">//alert(this);</span></div><div class="line"><span class="comment">//这时这里的this指的是window,所有没有办法this.style</span></div><div class="line">oBox.style.background=<span class="string">"red"</span>;</div><div class="line">&#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h2 id="箭头函数-gt"><a href="#箭头函数-gt" class="headerlink" title="箭头函数 =&gt;"></a>箭头函数 =&gt;</h2><p>不多说直接一个栗子：<br><a id="more"></a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line"><span class="keyword">var</span> oBox=<span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);</div><div class="line">oBox.onclivk=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line"><span class="comment">//alert(this);</span></div><div class="line"><span class="comment">//这时这里的this指的是window,所有没有办法this.style</span></div><div class="line">oBox.style.background=<span class="string">"red"</span>;</div><div class="line">&#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div id="box"&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>注意：</strong><br>1、 this的问题,指向window；<br>2、箭头函数中arguments,不能使用。</p>
@@ -444,11 +444,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">放眼看世界 世界都亮了</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color2">放眼看世界 世界都亮了</a>
               </li>
             
             <div class="clearfix"></div>
