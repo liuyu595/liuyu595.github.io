@@ -173,6 +173,96 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ES6入门笔记（三）“" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/14/ES6入门笔记（三）“/">ES6入门笔记（三）</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/14/ES6入门笔记（三）“/" class="archive-article-date">
+  	<time datetime="2017-03-14T06:17:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘要：<br>复制数组————spread、Map、for-of循环</p>
+<p>正文：</p>
+<h2 id="箭头函数-gt"><a href="#箭头函数-gt" class="headerlink" title="箭头函数 =&gt;"></a>箭头函数 =&gt;</h2><p>不多说直接一个栗子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line"><span class="keyword">var</span> oBox=<span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);</div><div class="line">oBox.onclivk=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line"><span class="comment">//alert(this);</span></div><div class="line"><span class="comment">//这时这里的this指的是window,所有没有办法this.style</span></div><div class="line">oBox.style.background=<span class="string">"red"</span>;</div><div class="line">&#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div id="box"&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意：</strong><br>1、 this的问题,指向window；<br>2、箭头函数中arguments,不能使用。</p>
+</blockquote>
+<h2 id="对象："><a href="#对象：" class="headerlink" title="对象："></a>对象：</h2><h4 id="es6对象作了简化"><a href="#es6对象作了简化" class="headerlink" title="es6对象作了简化"></a>es6对象作了简化</h4><p><strong>单体模式</strong><br>直接简单粗暴上举板栗：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name=<span class="string">'abb'</span>;</div><div class="line"><span class="keyword">var</span> age=<span class="number">111</span>;</div><div class="line"><span class="keyword">var</span> preson=&#123;</div><div class="line">name,</div><div class="line">age,</div><div class="line">showName()&#123;</div><div class="line"><span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;,</div><div class="line">showName()&#123;</div><div class="line"><span class="keyword">return</span> <span class="keyword">this</span>.age;</div><div class="line">&#125;</div><div class="line">&#125;;</div><div class="line">alert( preson.showName() );</div></pre></td></tr></table></figure>
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><h3 id="es6之前"><a href="#es6之前" class="headerlink" title="es6之前"></a>es6之前</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age</span>)</span>&#123;</div><div class="line"><span class="keyword">this</span>.name=name;</div><div class="line"><span class="keyword">this</span>.age=age;</div><div class="line">&#125;</div><div class="line">Person.prototype.showName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;;</div><div class="line">Person.prototype.showName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> p1=<span class="keyword">new</span> Person(<span class="string">"abc"</span>,<span class="number">101</span>);</div><div class="line">alert(p1.showName());</div></pre></td></tr></table></figure>
+<blockquote>
+ <figure class="highlight plain"><figcaption><span>上面这样写不是真的面向对象，这里的这个东西又是类又是构造函数。es6在面向对象上面做了一个彻底的区分，什么是构造函数？构造函数简单的说就是生成实例以后，自己就执行的函数。</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">来吧～！锯割栗子：</div><div class="line"></div><div class="line"></div><div class="line">```javascript</div><div class="line">class Person&#123; //类</div><div class="line">constructor(name,age)&#123;</div><div class="line">this.name=name;</div><div class="line">this.age=age;</div><div class="line">&#125;</div><div class="line">showName()&#123;</div><div class="line">return this.name;</div><div class="line">&#125;</div><div class="line">showAge()&#123;</div><div class="line">return this.age;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="函数给默认值"><a href="#函数给默认值" class="headerlink" title="函数给默认值"></a>函数给默认值</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">obj=<span class="string">"对象必须要填写"</span>，json=&#123;&#125;</span>)</span>&#123;</div><div class="line"><span class="built_in">console</span>.log(options);</div><div class="line">&#125;</div><div class="line">move();</div></pre></td></tr></table></figure>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>之前的继承，来再锯割栗子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Worker</span>(<span class="params">name,age</span>)</span>&#123;</div><div class="line">Person.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</div><div class="line">&#125;</div><div class="line">Worker.prototype=<span class="keyword">new</span> Person();</div><div class="line"><span class="keyword">var</span> w1=<span class="keyword">new</span> Person(<span class="string">'ddd'</span>,<span class="number">20</span>);</div><div class="line">alert(p1.showName());</div><div class="line"><span class="comment">//之前的继承模式：子类.prptotype=new 父类（）；</span></div></pre></td></tr></table></figure></p>
+<p><strong>es6中的继承</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Worker</span>(<span class="params">name,age</span>)</span>&#123;</div><div class="line">Person.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//继承开始</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Worker</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> w1=<span class="keyword">new</span> Worker(<span class="string">'mmm'</span>,<span class="number">34</span>);</div><div class="line">alert(w1.showAge());    <span class="comment">//34</span></div></pre></td></tr></table></figure></p>
+<h5 id="es6继承中的super"><a href="#es6继承中的super" class="headerlink" title="es6继承中的super"></a>es6继承中的super</h5><p>锯割栗子：（今天晚上很暴力的吃了好的坚果）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</div><div class="line"><span class="keyword">constructor</span>(name='add',age=0)&#123;</div><div class="line"><span class="keyword">this</span>.name=name;</div><div class="line"><span class="keyword">this</span>.age=age;</div><div class="line">&#125;</div><div class="line">showName()&#123;</div><div class="line"><span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;</div><div class="line">showAge()&#123;</div><div class="line"><span class="keyword">return</span> <span class="keyword">this</span>.age;</div><div class="line">&#125;	</div><div class="line">&#125;</div><div class="line"><span class="comment">//继承开始</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Worker</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</div><div class="line"><span class="keyword">constructor</span>(name,age,job="刷马桶")&#123;</div><div class="line"><span class="comment">//这样写之后，之前的父级的构造函数被覆盖掉了为了不被覆盖掉那么我们就用super.</span></div><div class="line"><span class="comment">//this.job=job; //defined</span></div><div class="line"></div><div class="line"><span class="keyword">super</span>(name,age);</div><div class="line"><span class="keyword">this</span>.job=job</div><div class="line">&#125;</div><div class="line">showJob()&#123;</div><div class="line"><span class="keyword">return</span> <span class="keyword">this</span>.job;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> w1=<span class="keyword">new</span> Worker(<span class="string">'mmm'</span>,<span class="number">34</span>);</div></pre></td></tr></table></figure></p>
+<p>每天多学一点，明天就少写一行代码～！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ES6语法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/ES6基础知识/" class="article-tag-list-link color3">ES6基础知识</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/14/ES6入门笔记（三）“/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-hexo之入门后填坑（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -231,96 +321,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/03/13/hexo之入门后填坑（一）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-ES6入门笔记（三）“" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/12/ES6入门笔记（三）“/">ES6入门笔记（三）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/12/ES6入门笔记（三）“/" class="archive-article-date">
-  	<time datetime="2017-03-12T06:17:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>摘要：<br>复制数组————spread、Map、for-of循环</p>
-<p>正文：</p>
-<h2 id="箭头函数-gt"><a href="#箭头函数-gt" class="headerlink" title="箭头函数 =&gt;"></a>箭头函数 =&gt;</h2><p>不多说直接一个栗子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line"><span class="keyword">var</span> oBox=<span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);</div><div class="line">oBox.onclivk=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</div><div class="line"><span class="comment">//alert(this);</span></div><div class="line"><span class="comment">//这时这里的this指的是window,所有没有办法this.style</span></div><div class="line">oBox.style.background=<span class="string">"red"</span>;</div><div class="line">&#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div id="box"&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>注意：</strong><br>1、 this的问题,指向window；<br>2、箭头函数中arguments,不能使用。</p>
-</blockquote>
-<h2 id="对象："><a href="#对象：" class="headerlink" title="对象："></a>对象：</h2><h4 id="es6对象作了简化"><a href="#es6对象作了简化" class="headerlink" title="es6对象作了简化"></a>es6对象作了简化</h4><p><strong>单体模式</strong><br>直接简单粗暴上举板栗：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name=<span class="string">'abb'</span>;</div><div class="line"><span class="keyword">var</span> age=<span class="number">111</span>;</div><div class="line"><span class="keyword">var</span> preson=&#123;</div><div class="line">name,</div><div class="line">age,</div><div class="line">showName()&#123;</div><div class="line"><span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;,</div><div class="line">showName()&#123;</div><div class="line"><span class="keyword">return</span> <span class="keyword">this</span>.age;</div><div class="line">&#125;</div><div class="line">&#125;;</div><div class="line">alert( preson.showName() );</div></pre></td></tr></table></figure>
-<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><p>###es6之前<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age</span>)</span>&#123;</div><div class="line"><span class="keyword">this</span>.name=name;</div><div class="line"><span class="keyword">this</span>.age=age;</div><div class="line">&#125;</div><div class="line">Person.prototype.showName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;;</div><div class="line">Person.prototype.showName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> p1=<span class="keyword">new</span> Person(<span class="string">"abc"</span>,<span class="number">101</span>);</div><div class="line">alert(p1.showName());</div></pre></td></tr></table></figure></p>
-<blockquote>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&gt;  上面这样写不是真的面向对象，这里的这个东西又是类又是构造函数。</div><div class="line"></div><div class="line">es6在面向对象上面做了一个彻底的区分，什么是构造函数？构造函数简单的说就是生成实例以后，自己就执行的函数。</div><div class="line">来吧～！锯割栗子：</div><div class="line"></div><div class="line">```javascript</div><div class="line">class Person&#123; //类</div><div class="line">constructor(name,age)&#123;</div><div class="line">this.name=name;</div><div class="line">this.age=age;</div><div class="line">&#125;</div><div class="line">showName()&#123;</div><div class="line">return this.name;</div><div class="line">&#125;</div><div class="line">showAge()&#123;</div><div class="line">return this.age;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</blockquote>
-<h2 id="函数给默认值"><a href="#函数给默认值" class="headerlink" title="函数给默认值"></a>函数给默认值</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">obj=<span class="string">"对象必须要填写"</span>，json=&#123;&#125;</span>)</span>&#123;</div><div class="line"><span class="built_in">console</span>.log(options);</div><div class="line">&#125;</div><div class="line">move();</div></pre></td></tr></table></figure>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>之前的继承，来再锯割栗子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Worker</span>(<span class="params">name,age</span>)</span>&#123;</div><div class="line">Person.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</div><div class="line">&#125;</div><div class="line">Worker.prototype=<span class="keyword">new</span> Person();</div><div class="line"><span class="keyword">var</span> w1=<span class="keyword">new</span> Person(<span class="string">'ddd'</span>,<span class="number">20</span>);</div><div class="line">alert(p1.showName());</div><div class="line"><span class="comment">//之前的继承模式：子类.prptotype=new 父类（）；</span></div></pre></td></tr></table></figure></p>
-<p><strong>es6中的继承</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Worker</span>(<span class="params">name,age</span>)</span>&#123;</div><div class="line">Person.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//继承开始</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Worker</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> w1=<span class="keyword">new</span> Worker(<span class="string">'mmm'</span>,<span class="number">34</span>);</div><div class="line">alert(w1.showAge());    <span class="comment">//34</span></div></pre></td></tr></table></figure></p>
-<h5 id="es6继承中的super"><a href="#es6继承中的super" class="headerlink" title="es6继承中的super"></a>es6继承中的super</h5><p>锯割栗子：（今天晚上很暴力的吃了好的坚果）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</div><div class="line"><span class="keyword">constructor</span>(name='add',age=0)&#123;</div><div class="line"><span class="keyword">this</span>.name=name;</div><div class="line"><span class="keyword">this</span>.age=age;</div><div class="line">&#125;</div><div class="line">showName()&#123;</div><div class="line"><span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;</div><div class="line">showAge()&#123;</div><div class="line"><span class="keyword">return</span> <span class="keyword">this</span>.age;</div><div class="line">&#125;	</div><div class="line">&#125;</div><div class="line"><span class="comment">//继承开始</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Worker</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</div><div class="line"><span class="keyword">constructor</span>(name,age,job="刷马桶")&#123;</div><div class="line"><span class="comment">//这样写之后，之前的父级的构造函数被覆盖掉了为了不被覆盖掉那么我们就用super.</span></div><div class="line"><span class="comment">//this.job=job; //defined</span></div><div class="line"></div><div class="line"><span class="keyword">super</span>(name,age);</div><div class="line"><span class="keyword">this</span>.job=job</div><div class="line">&#125;</div><div class="line">showJob()&#123;</div><div class="line"><span class="keyword">return</span> <span class="keyword">this</span>.job;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> w1=<span class="keyword">new</span> Worker(<span class="string">'mmm'</span>,<span class="number">34</span>);</div></pre></td></tr></table></figure></p>
-<p>每天多学一点，明天就少写一行代码～！</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ES6语法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/ES6基础知识/" class="article-tag-list-link color3">ES6基础知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/12/ES6入门笔记（三）“/">展开全文 >></a>
         </p>
       
 
