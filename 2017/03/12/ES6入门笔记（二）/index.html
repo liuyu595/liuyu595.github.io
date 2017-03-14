@@ -24,7 +24,7 @@
 举栗子
 
 12345var arr = [1,2,3];var arr2=arr;arr2.pop();console.log(arr, arr2);//arr2删除最后一个元素时，arr也会受到影响">
-<meta property="og:updated_time" content="2017-03-14T01:52:59.000Z">
+<meta property="og:updated_time" content="2017-03-14T14:48:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6入门笔记（二）">
 <meta name="twitter:description" content="摘要：    复制数组————spread、Map、for-of循环
@@ -261,7 +261,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for(var [key,value] of map)&#123;</div><div class="line">console.log(key,value);</div><div class="line">//这时map的默认值是enteries,也就是map.enteries( ),</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><strong>单独获取a b c d</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> map =<span class="keyword">new</span> <span class="built_in">Map</span>();</div><div class="line">map.set(<span class="string">'a'</span>,<span class="string">'apple'</span>);</div><div class="line">map.set(<span class="string">'b'</span>,<span class="string">'banana'</span>);</div><div class="line">map.set(<span class="string">'c'</span>,<span class="string">'orange'</span>);</div><div class="line">map.set(<span class="string">'d'</span>,<span class="string">'pear'</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">of</span> map.keys())&#123;</div><div class="line"><span class="built_in">console</span>.log(key);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//循环val 同理</span></div></pre></td></tr></table></figure>
-<p>下篇文章探究下<strong>for of</strong> 与<strong>for each</strong>区别用法。</p>
 
       
 
