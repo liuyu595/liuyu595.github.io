@@ -6,14 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://liuyu595.github.io">
-  <title>Tag: ES6语法 | 我的博客</title>
+  <title>ES6Tab选项卡、轮播图 | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="我的博客">
-<meta property="og:url" content="https://liuyu595.github.io/tags/ES6语法/index.html">
+  <meta name="description" content="摘要：ES6 面向对象编程——选项卡、轮播图
+正文：
+es6面向对象——选项卡、轮播直接荔枝（今天心情不错，换个果子）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6Tab选项卡、轮播图">
+<meta property="og:url" content="https://liuyu595.github.io/2017/03/15/ES6Tab选项卡、轮播图/index.html">
 <meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="摘要：ES6 面向对象编程——选项卡、轮播图
+正文：
+es6面向对象——选项卡、轮播直接荔枝（今天心情不错，换个果子）">
+<meta property="og:updated_time" content="2017-03-15T14:31:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的博客">
+<meta name="twitter:title" content="ES6Tab选项卡、轮播图">
+<meta name="twitter:description" content="摘要：ES6 面向对象编程——选项卡、轮播图
+正文：
+es6面向对象——选项卡、轮播直接荔枝（今天心情不错，换个果子）">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -171,36 +181,62 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-ES6Tab选项卡、轮播图" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      ES6Tab选项卡、轮播图
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/15/ES6Tab选项卡、轮播图/" class="archive-article-date">
+
+        
+        <a href="/2017/03/15/ES6Tab选项卡、轮播图/" class="archive-article-date">
   	<time datetime="2017-03-15T14:27:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-15</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/15/ES6Tab选项卡、轮播图/">ES6Tab选项卡、轮播图</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘要：<br>ES6 面向对象编程——选项卡、轮播图</p>
+<p>正文：</p>
+<h2 id="es6面向对象——选项卡、轮播"><a href="#es6面向对象——选项卡、轮播" class="headerlink" title="es6面向对象——选项卡、轮播"></a>es6面向对象——选项卡、轮播</h2><p><strong>直接荔枝（今天心情不错，换个果子）</strong><br><a id="more"></a></p>
+<p><strong>样式部分</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.on&#123;background:#f60;color:#fff&#125;</div><div class="line">.box div&#123;</div><div class="line">width:200px;</div><div class="line">height:200px;</div><div class="line">border:1px red solid;</div><div class="line">display:none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>heml部分</strong><br><figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;div id="box" class="box"&gt;</div><div class="line">&lt;input class="on" type="button" value="aaa"&gt;</div><div class="line">&lt;input type="button" value="bbb"&gt;</div><div class="line">&lt;input type="button" value="ccc"&gt;</div><div class="line">&lt;div style="display: block"&gt;111&lt;/div&gt;</div><div class="line">&lt;div&gt;222&lt;/div&gt;</div><div class="line">&lt;div&gt;333&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div id="box2" class="box"&gt;</div><div class="line">&lt;input class="on" type="button" value="aaa"&gt;</div><div class="line">&lt;input type="button" value="bbb"&gt;</div><div class="line">&lt;input type="button" value="ccc"&gt;</div><div class="line">&lt;div style="display: block"&gt;111&lt;/div&gt;</div><div class="line">&lt;div&gt;222&lt;/div&gt;</div><div class="line">&lt;div&gt;333&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>js部分</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tab</span></span>&#123;</div><div class="line"><span class="keyword">constructor</span>(id)&#123;</div><div class="line"><span class="keyword">this</span>.oBox=<span class="built_in">document</span>.getElementById(id);</div><div class="line"><span class="keyword">this</span>.aBtn=<span class="keyword">this</span>.oBox.getElementsByTagName(<span class="string">'input'</span>);</div><div class="line"><span class="keyword">this</span>.aDiv=<span class="keyword">this</span>.oBox.getElementsByTagName(<span class="string">'div'</span>);</div><div class="line"><span class="keyword">this</span>.iNow=<span class="number">0</span>;</div><div class="line"><span class="keyword">this</span>.init();</div><div class="line">&#125;</div><div class="line">init()&#123;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;<span class="keyword">this</span>.aBtn.length; i++)&#123;</div><div class="line"><span class="keyword">this</span>.aBtn[i].onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="comment">// alert(i);</span></div><div class="line"><span class="comment">// alert(this);</span></div><div class="line"><span class="keyword">this</span>.hide();</div><div class="line"><span class="keyword">this</span>.show(i);</div><div class="line">&#125;.bind(<span class="keyword">this</span>);           <span class="comment">//bind矫正this指向</span></div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">hide()&#123;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.aBtn.length;i++)&#123;</div><div class="line"><span class="keyword">this</span>.aBtn[i].className=<span class="string">""</span>;</div><div class="line"><span class="keyword">this</span>.aDiv[i].style.display=<span class="string">'none'</span>;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">show(index)&#123;</div><div class="line"><span class="keyword">this</span>.aBtn[index].className=<span class="string">"on"</span>;</div><div class="line"><span class="keyword">this</span>.aDiv[index].style.display=<span class="string">'block'</span>;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//继承</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AutoTab</span> <span class="keyword">extends</span> <span class="title">Tab</span></span>&#123;</div><div class="line"><span class="comment">//</span></div><div class="line"><span class="keyword">constructor</span>(id)&#123;</div><div class="line"><span class="keyword">super</span>(id);</div><div class="line"></div><div class="line"><span class="comment">//alert(111);</span></div><div class="line"><span class="comment">//setInterval(this.next,1000);      this 指向obj</span></div><div class="line">setInterval(<span class="keyword">this</span>.next.bind(<span class="keyword">this</span>),<span class="number">1000</span>);</div><div class="line">&#125;</div><div class="line">next()&#123;</div><div class="line"><span class="keyword">this</span>.iNow++;</div><div class="line"><span class="keyword">if</span>(<span class="keyword">this</span>.iNow==<span class="keyword">this</span>.aBtn.length)<span class="keyword">this</span>.iNow=<span class="number">0</span>;</div><div class="line"><span class="keyword">this</span>.hide();</div><div class="line"><span class="keyword">this</span>.show(<span class="keyword">this</span>.iNow);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">new</span> Tab(<span class="string">'box'</span>);</div><div class="line"><span class="keyword">var</span> at=<span class="keyword">new</span> AutoTab(<span class="string">"box2"</span>);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -212,7 +248,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -225,164 +261,86 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://liuyu595.github.io/2017/03/15/ES6Tab选项卡、轮播图/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/14/ES6入门笔记（三）“/" class="archive-article-date">
-  	<time datetime="2017-03-14T06:17:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/14/ES6入门笔记（三）“/">ES6入门笔记（三）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ES6语法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/ES6基础知识/" class="article-tag-list-link color3">ES6基础知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/12/ES6入门笔记（二）/" class="archive-article-date">
-  	<time datetime="2017-03-12T06:17:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/12/ES6入门笔记（二）/">ES6入门笔记（二）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ES6语法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/ES6基础知识/" class="article-tag-list-link color3">ES6基础知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/12/ES6入门笔记（一）“/" class="archive-article-date">
-  	<time datetime="2017-03-12T03:03:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/12/ES6入门笔记（一）“/">”ES6入门笔记（一）“</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ES6语法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/ES6基础知识/" class="article-tag-list-link color3">ES6基础知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/03/14/ES6入门笔记（三）“/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ES6入门笔记（三）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -405,9 +363,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
