@@ -6,15 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://liuyu595.github.io">
-  <title>归档 | 我的博客</title>
+  <title>Three.js之小白入坑（一） | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="归档">
-<meta property="og:url" content="https://liuyu595.github.io/archive/index.html">
+  <meta name="description" content="摘要：首先要感谢仙女姐姐早期发表在图灵的文章，通俗易懂，介于对这位女神的崇拜，我会认真的读下去。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Three.js之小白入坑（一）">
+<meta property="og:url" content="https://liuyu595.github.io/2017/03/22/Three-js之小白入坑（一）/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:updated_time" content="2017-03-09T05:04:17.000Z">
+<meta property="og:description" content="摘要：首先要感谢仙女姐姐早期发表在图灵的文章，通俗易懂，介于对这位女神的崇拜，我会认真的读下去。">
+<meta property="og:updated_time" content="2017-03-22T15:40:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="归档">
+<meta name="twitter:title" content="Three.js之小白入坑（一）">
+<meta name="twitter:description" content="摘要：首先要感谢仙女姐姐早期发表在图灵的文章，通俗易懂，介于对这位女神的崇拜，我会认真的读下去。">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -172,27 +175,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-archive-undefined" class="article article-type-page-archive " itemscope itemprop="blogPost">
+            <article id="post-Three-js之小白入坑（一）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      归档
+      Three.js之小白入坑（一）
     </h1>
   
 
         
-        <a href="/archive/index.html" class="archive-article-date">
-  	<time datetime="2017-03-09T05:01:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-09</time>
+        <a href="/2017/03/22/Three-js之小白入坑（一）/" class="archive-article-date">
+  	<time datetime="2017-03-22T15:31:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h4 id="摘要：首先要感谢仙女姐姐早期发表在图灵的文章，通俗易懂，介于对这位女神的崇拜，我会认真的读下去。"><a href="#摘要：首先要感谢仙女姐姐早期发表在图灵的文章，通俗易懂，介于对这位女神的崇拜，我会认真的读下去。" class="headerlink" title="摘要：首先要感谢仙女姐姐早期发表在图灵的文章，通俗易懂，介于对这位女神的崇拜，我会认真的读下去。"></a>摘要：首先要感谢仙女姐姐早期发表在图灵的文章，通俗易懂，介于对这位女神的崇拜，我会认真的读下去。</h4><a id="more"></a>
+<h2 id="正文："><a href="#正文：" class="headerlink" title="正文："></a>正文：</h2><h2 id="初识"><a href="#初识" class="headerlink" title="初识"></a>初识</h2><p>回眸一笑百媚生，六宫粉黛无颜色，初次见到是再某猫是双十二购物狂欢节的APP上，第二次见到是快过年的时候，某猫倒计时春节的一个动画。以至于一见倾心。</p>
+<h2 id="入坑——照相机"><a href="#入坑——照相机" class="headerlink" title="入坑——照相机"></a>入坑——照相机</h2><p>废话不多说，带好自己的铁锹、锄头、手电筒（自己都感觉有点挖坟掘墓的节奏）。<br><strong>什么是照相机</strong><br>这个照相机值得是在图形学中的照相机，比较抽象。这里的照相机就是把三维空间头型到二维屏幕的一个方式（可以脑补下，我们在纸上画空间立体直角坐标系一样一样的）。<br>而针对投影方式的不同，相机又分为正交投影照相机喝透视投影照相机。<br><strong>正交照相机</strong><br>蒸饺投影相机（orthogtaphic camera）设置起来比较直观哈，它的构造函数：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">THREE.OrthographicCamera(left, right, top, bottom, near, far) <span class="comment">//开头必须大写</span></div></pre></td></tr></table></figure></p>
+<p><a href="http://wx2.sinaimg.cn/mw690/006qXO9qly1fdw1mjbntfj30jg0hkgmd.jpg" target="_blank" rel="external">http://wx2.sinaimg.cn/mw690/006qXO9qly1fdw1mjbntfj30jg0hkgmd.jpg</a></p>
+<ul>
+<li><strong><code>注意：</code></strong>为了保持照相机的横竖比例，需要保证(right - left)与(top - bottom)的比例与Canvas宽度与高度的比例一致。<br>near与far都是指到照相机位置在深度平面的位置，而照相机不应该拍摄到其后方的物体，因此这两个值应该均为正值。为了保证场景中的物体不会因为太近或太远而被照相机忽略，一般near的值设置得较小，far的值设置得较大，具体值视场景中物体的位置等决定。<br>下面是关键词，当在有问题需要查帮助文档时 直接搜索关键词：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div></pre></td><td class="code"><pre><div class="line">Cameras（照相机，控制投影方式）</div><div class="line"></div><div class="line">Camera</div><div class="line">OrthographicCamera</div><div class="line">PerspectiveCamera</div><div class="line"></div><div class="line">Core（核心对象）</div><div class="line"></div><div class="line">BufferGeometry</div><div class="line">Clock（用来记录时间）</div><div class="line">EventDispatcher</div><div class="line">Face3</div><div class="line">Face4</div><div class="line">Geometry</div><div class="line">Object3D</div><div class="line">Projector</div><div class="line">Raycaster（计算鼠标拾取物体时很有用的对象）</div><div class="line"></div><div class="line">Lights（光照）</div><div class="line">Light</div><div class="line">AmbientLight</div><div class="line">AreaLight</div><div class="line">DirectionalLight</div><div class="line">HemisphereLight</div><div class="line">PointLight</div><div class="line">SpotLight</div><div class="line"></div><div class="line">Loaders（加载器，用来加载特定文件）</div><div class="line">Loader</div><div class="line">BinaryLoader</div><div class="line">GeometryLoader</div><div class="line">ImageLoader</div><div class="line">JSONLoader</div><div class="line">LoadingMonitor</div><div class="line">SceneLoader</div><div class="line">TextureLoader</div><div class="line"></div><div class="line">Materials（材质，控制物体的颜色、纹理等）</div><div class="line">Material</div><div class="line">LineBasicMaterial</div><div class="line">LineDashedMaterial</div><div class="line">MeshBasicMaterial</div><div class="line">MeshDepthMaterial</div><div class="line">MeshFaceMaterial</div><div class="line">MeshLambertMaterial</div><div class="line">MeshNormalMaterial</div><div class="line">MeshPhongMaterial</div><div class="line">ParticleBasicMaterial</div><div class="line">ParticleCanvasMaterial</div><div class="line">ParticleDOMMaterial</div><div class="line">ShaderMaterial</div><div class="line">SpriteMaterial</div><div class="line"></div><div class="line"><span class="built_in">Math</span>（和数学相关的对象）</div><div class="line"></div><div class="line">Box2</div><div class="line">Box3</div><div class="line">Color</div><div class="line">Frustum</div><div class="line"><span class="built_in">Math</span></div><div class="line">Matrix3</div><div class="line">Matrix4</div><div class="line">Plane</div><div class="line">Quaternion</div><div class="line">Ray</div><div class="line">Sphere</div><div class="line">Spline</div><div class="line">Triangle</div><div class="line">Vector2</div><div class="line">Vector3</div><div class="line">Vector4</div><div class="line"></div><div class="line">Objects（物体）</div><div class="line"></div><div class="line">Bone</div><div class="line">Line</div><div class="line">LOD</div><div class="line">Mesh（网格，最常用的物体）</div><div class="line">MorphAnimMesh</div><div class="line">Particle</div><div class="line">ParticleSystem</div><div class="line">Ribbon</div><div class="line">SkinnedMesh</div><div class="line">Sprite</div><div class="line"></div><div class="line">Renderers（渲染器，可以渲染到不同对象上）</div><div class="line"></div><div class="line">CanvasRenderer</div><div class="line">WebGLRenderer（使用WebGL渲染，这是本书中最常用的方式）</div><div class="line">WebGLRenderTarget</div><div class="line">WebGLRenderTargetCube</div><div class="line">WebGLShaders（着色器，在最后一章作介绍）</div><div class="line"></div><div class="line">Renderers / Renderables</div><div class="line"></div><div class="line">RenderableFace3</div><div class="line">RenderableFace4</div><div class="line">RenderableLine</div><div class="line">RenderableObject</div><div class="line">RenderableParticle</div><div class="line">RenderableVertex</div><div class="line"></div><div class="line">Scenes（场景）</div><div class="line"></div><div class="line">Fog</div><div class="line">FogExp2</div><div class="line">Scene</div><div class="line"></div><div class="line">Textures（纹理）</div><div class="line"></div><div class="line">CompressedTexture</div><div class="line">DataTexture</div><div class="line">Texture</div><div class="line"></div><div class="line">Extras</div><div class="line"></div><div class="line">FontUtils</div><div class="line">GeometryUtils</div><div class="line">ImageUtils</div><div class="line">SceneUtils</div><div class="line"></div><div class="line">Extras / Animation</div><div class="line"></div><div class="line">Animation</div><div class="line">AnimationHandler</div><div class="line">AnimationMorphTarget</div><div class="line">KeyFrameAnimation</div><div class="line"></div><div class="line">Extras / Cameras</div><div class="line"></div><div class="line">CombinedCamera</div><div class="line">CubeCamera</div><div class="line"></div><div class="line">Extras / Core</div><div class="line"></div><div class="line">Curve</div><div class="line">CurvePath</div><div class="line">Gyroscope</div><div class="line">Path</div><div class="line">Shape</div><div class="line"></div><div class="line">Extras / Geometries（几何形状）</div><div class="line"></div><div class="line">CircleGeometry</div><div class="line">ConvexGeometry</div><div class="line">CubeGeometry</div><div class="line">CylinderGeometry</div><div class="line">ExtrudeGeometry</div><div class="line">IcosahedronGeometry</div><div class="line">LatheGeometry</div><div class="line">OctahedronGeometry</div><div class="line">ParametricGeometry</div><div class="line">PlaneGeometry</div><div class="line">PolyhedronGeometry</div><div class="line">ShapeGeometry</div><div class="line">SphereGeometry</div><div class="line">TetrahedronGeometry</div><div class="line">TextGeometry</div><div class="line">TorusGeometry</div><div class="line">TorusKnotGeometry</div><div class="line">TubeGeometry</div><div class="line"></div><div class="line">Extras / Helpers</div><div class="line"></div><div class="line">ArrowHelper</div><div class="line">AxisHelper</div><div class="line">CameraHelper</div><div class="line">DirectionalLightHelper</div><div class="line">HemisphereLightHelper</div><div class="line">PointLightHelper</div><div class="line">SpotLightHelper</div><div class="line"></div><div class="line">Extras / Objects</div><div class="line"></div><div class="line">ImmediateRenderObject</div><div class="line">LensFlare</div><div class="line">MorphBlendMesh</div><div class="line"></div><div class="line">Extras / Renderers / Plugins</div><div class="line"></div><div class="line">DepthPassPlugin</div><div class="line">LensFlarePlugin</div><div class="line">ShadowMapPlugin</div><div class="line">SpritePlugin</div><div class="line"></div><div class="line">Extras / Shaders</div><div class="line"></div><div class="line">ShaderFlares</div><div class="line">ShaderSprite</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
       
 
       
@@ -221,7 +232,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Three.js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/图形脚本/" class="article-tag-list-link color5">图形脚本</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -271,7 +304,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://liuyu595.github.io/archive/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://liuyu595.github.io/2017/03/22/Three-js之小白入坑（一）/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -283,6 +316,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/19/ES6入门笔记（四）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ES6入门笔记（四）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 
 
@@ -315,7 +358,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
