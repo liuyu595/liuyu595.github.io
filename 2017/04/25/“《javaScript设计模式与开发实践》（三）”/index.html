@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://liuyu595.github.io">
-  <title>ES6入门笔记（二） | 奔向没有终点的旅程</title>
+  <title>“《javaScript设计模式与开发实践》（三）” | 奔向没有终点的旅程</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要：    复制数组————spread、Map、for-of循环">
+  <meta name="description" content="摘要：闭包好几天没有更新blog了，虽然没有更新，但是都记录在案了。向雷锋同志学习，记录在本子上。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6入门笔记（二）">
-<meta property="og:url" content="https://liuyu595.github.io/2017/03/12/ES6入门笔记（二）/index.html">
+<meta property="og:title" content="“《javaScript设计模式与开发实践》（三）”">
+<meta property="og:url" content="https://liuyu595.github.io/2017/04/25/“《javaScript设计模式与开发实践》（三）”/index.html">
 <meta property="og:site_name" content="奔向没有终点的旅程">
-<meta property="og:description" content="摘要：    复制数组————spread、Map、for-of循环">
-<meta property="og:updated_time" content="2017-03-30T01:02:24.000Z">
+<meta property="og:description" content="摘要：闭包好几天没有更新blog了，虽然没有更新，但是都记录在案了。向雷锋同志学习，记录在本子上。">
+<meta property="og:updated_time" content="2017-04-25T02:17:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6入门笔记（二）">
-<meta name="twitter:description" content="摘要：    复制数组————spread、Map、for-of循环">
+<meta name="twitter:title" content="“《javaScript设计模式与开发实践》（三）”">
+<meta name="twitter:description" content="摘要：闭包好几天没有更新blog了，虽然没有更新，但是都记录在案了。向雷锋同志学习，记录在本子上。">
   
     <link rel="alternative" href="/atom.xml" title="奔向没有终点的旅程" type="application/atom+xml">
   
@@ -175,77 +175,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ES6入门笔记（二）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-“《javaScript设计模式与开发实践》（三）”" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      ES6入门笔记（二）
+      “《javaScript设计模式与开发实践》（三）”
     </h1>
   
 
         
-        <a href="/2017/03/12/ES6入门笔记（二）/" class="archive-article-date">
-  	<time datetime="2017-03-12T06:17:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-12</time>
+        <a href="/2017/04/25/“《javaScript设计模式与开发实践》（三）”/" class="archive-article-date">
+  	<time datetime="2017-04-25T02:13:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要：<br>    复制数组————spread、Map、for-of循环<br><a id="more"></a></p>
-<p>正文：</p>
-<h2 id="数组复制"><a href="#数组复制" class="headerlink" title="数组复制"></a>数组复制</h2><ul>
-<li>举栗子</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">var</span> arr2=arr;</div><div class="line">arr2.pop();</div><div class="line"><span class="built_in">console</span>.log(arr, arr2);</div><div class="line"><span class="comment">//arr2删除最后一个元素时，arr也会受到影响</span></div></pre></td></tr></table></figure>
-<!--more-->
-<p>怎么才能不让我们的arr受到牵连呢？</p>
+        <p>摘要：闭包<br>好几天没有更新blog了，虽然没有更新，但是都记录在案了。向雷锋同志学习，记录在本子上。<br><a id="more"></a><br><strong>1.1闭包</strong><br>闭包的形成与变量的作用域以及变量的生命周期有关。</p>
+<p><strong>1.1变量作用域</strong><br>变量的作用域就是指的变量的有效范围。<br>在声明变量的时候前面没有var的时候，这个变量就会变成全局变量，当然这种做法绒癌造成命名冲突。<br>函数可以用来创造函数的作用域。此时在函数的作用域中声明的变量都是局部变量，自由在函数体中，才能访问的到。<br><strong>1.2变量的生命周期</strong><br>除了变量之外，另外根闭包有关的还有就是变量的生命周期。<br>对于全局变量来说生命周期是永久的，除非我们主动的销毁这个全局变量。对于局部变量来说，当退出函数时，这些局部变量及失去了它们的价值，他们都会随着函数调用的结束而被销毁。<br>锯割栗子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> func =<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">var</span> a = <span class="number">1</span>;      <span class="comment">//退出函数后局部变量a销毁</span></div><div class="line">alert(a);</div><div class="line">&#125;</div><div class="line">func();</div></pre></td></tr></table></figure></p>
+<p><strong>1.3闭包的作用</strong></p>
 <ul>
-<li>再举一栗子—–循环</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">var</span> arr2=[];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;arr.length; i++)&#123;</div><div class="line">arr2[i]=arr[i];</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(arr, arr2);</div><div class="line"><span class="comment">//arr这时候是不会受到任何影响的；但是这种方法比较繁琐；</span></div></pre></td></tr></table></figure>
-<ul>
-<li>下面在举一个板栗吧～！</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">var</span> arr2=<span class="built_in">Array</span>.from(arr);</div><div class="line">arr2.pop();</div><div class="line"><span class="built_in">console</span>.log(arr, arr2);</div><div class="line"><span class="comment">//这个板栗还是可以的，简单多了；</span></div></pre></td></tr></table></figure>
-<p><strong>科普下Array.from(   )</strong></p>
-<blockquote>
-<p>  <strong>es6</strong> 新特性中 Array 类多了一个静态方法 from ，这个方法作用是将一个 ArrayLike 对象或者 Iterable 对象转换成一个 Array。所谓 ArrayLike 对象指具有数组某些行为的对象，表现出来的特征就是具有 length 属性。 </p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line"><span class="string">"0"</span> : <span class="number">1</span>,</div><div class="line"><span class="attr">length</span>: <span class="number">1</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>这一类对象不能调用数组所具有的方法(push/forEach/map之类)，最常见的有两种：DOM中的 NodeList 和函数中的 arguments 。<br>在平常开发中，我们经常遇到需要将这两种对象转化为真正数组的场景，一般我们是这么写：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> args = [].slice.call(<span class="built_in">arguments</span>);</div><div class="line"><span class="keyword">var</span> imgs = [].slice.call(<span class="built_in">document</span>.querySelectorAll(<span class="string">'img'</span>));</div></pre></td></tr></table></figure>
-<p>现在有了<strong>Array.from</strong>后我们可以这样写：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> args = <span class="built_in">Array</span>.from(<span class="built_in">arguments</span>);</div><div class="line"><span class="keyword">var</span> imgs = <span class="built_in">Array</span>.from(<span class="built_in">document</span>.querySelectorAll(<span class="string">'img'</span>));</div><div class="line"><span class="comment">//不考虑兼容性的时候我们可以这样写</span></div></pre></td></tr></table></figure>
-<p>下面言归正传吧：接着写我们的数组～接着举例子！</p>
-<ul>
-<li>新鲜板栗来了～！好吃不贵<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</div><div class="line"><span class="keyword">var</span> arr2=[...arr];</div><div class="line">arr2.pop();</div><div class="line"><span class="comment">//前面的这三个点——“超引用”这么叫吧</span></div></pre></td></tr></table></figure>
+<li>封装变量 </li>
+<li>延续局部变量的寿命<br>闭包是如何延续寿命的呢？锯割栗子:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//img对象经常用于进行数据上报。</span></div><div class="line"><span class="keyword">var</span> img = <span class="function"><span class="keyword">function</span>(<span class="params">src</span>)</span>&#123;</div><div class="line"><span class="keyword">var</span> img = <span class="keyword">new</span> Imge();</div><div class="line">img.src=src; </div><div class="line">&#125;;</div><div class="line">report(<span class="string">'hettp://baidu/com'</span>)	;</div><div class="line"><span class="comment">//版本低的实现存在bug</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params">...args</span>)</span>&#123;</div><div class="line">args.push(<span class="number">5</span>);</div><div class="line"><span class="built_in">console</span>.log(args);</div><div class="line">&#125;</div><div class="line">show(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</div><div class="line"><span class="comment">//完美解决</span></div></pre></td></tr></table></figure>
-<p>##循环</p>
+<p><strong>分析下这个原因：</strong></p>
 <blockquote>
-<p>es6新增了一个 for of 循环，那么这个循环的目的：是遍历（迭代、循环）这个对象，表现有点类似for in。但是不能循环json,其真正的目的是循环 map对象的。</p>
+<p>数据在请求时丢失数据，原因是因为函数中的局部变量当函数被调用时，img局部变量随机呗销毁了，所以这时的http请求没有来的发出，所以就会出现请求丢失。</p>
 </blockquote>
-<ul>
-<li>来个代码看看吧<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr=[<span class="string">'apple'</span>,<span class="string">'banana'</span>,<span class="string">'orange'</span>,<span class="string">'pear'</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">of</span> arr)&#123;</div><div class="line"><span class="built_in">console</span>.log(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p><strong>注：</strong>上述打印出来的结果跟普通的for in 打印出来的结果不一样，for in打印出来是数组的下标，而for of 打印出来却是相对应的水果名字。</p>
-</blockquote>
-<h2 id="Map对象"><a href="#Map对象" class="headerlink" title="Map对象"></a>Map对象</h2><p>map对象和json相似，也是一种key-value形式，Map对象为了和for of 循环为何而生。</p>
-<ul>
-<li><strong>语法</strong><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> map =<span class="keyword">new</span> <span class="built_in">Map</span>（）；</div><div class="line"></div><div class="line"><span class="comment">//设置：</span></div><div class="line">map.set(name,value);</div><div class="line"></div><div class="line"><span class="comment">//获取</span></div><div class="line">map.set(<span class="string">'a'</span>,<span class="string">'apple'</span>);</div><div class="line">map.set(<span class="string">'b'</span>,<span class="string">'banana'</span>);</div><div class="line"><span class="comment">//console.log(map.a);</span></div><div class="line"><span class="comment">//alert(map.a);   undefined</span></div><div class="line"><span class="comment">//获取map就用get（）方法</span></div><div class="line">alert(map.get(<span class="string">'a'</span>))</div><div class="line"><span class="comment">//删除</span></div><div class="line"><span class="keyword">delete</span> map.a;    <span class="comment">//json 删除方法在这里没有效果</span></div><div class="line">map.delete(<span class="string">'a'</span>); <span class="comment">//map的delete方法，可以用的</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>map</strong>和<strong>for of</strong>结合去用：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> map =<span class="keyword">new</span> <span class="built_in">Map</span>();</div><div class="line">map.set(<span class="string">'a'</span>,<span class="string">'apple'</span>);</div><div class="line">map.set(<span class="string">'b'</span>,<span class="string">'banana'</span>);</div><div class="line">map.set(<span class="string">'c'</span>,<span class="string">'orange'</span>);</div><div class="line">map.set(<span class="string">'d'</span>,<span class="string">'pear'</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> [key,value] <span class="keyword">of</span> map)&#123;</div><div class="line"><span class="built_in">console</span>.log(key,value);</div><div class="line"><span class="comment">//[key,value]中两个参数可以是任何字母</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for(var [key,value] of map)&#123;</div><div class="line">console.log(key,value);</div><div class="line">//这时map的默认值是enteries,也就是map.enteries( ),</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>单独获取a b c d</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> map =<span class="keyword">new</span> <span class="built_in">Map</span>();</div><div class="line">map.set(<span class="string">'a'</span>,<span class="string">'apple'</span>);</div><div class="line">map.set(<span class="string">'b'</span>,<span class="string">'banana'</span>);</div><div class="line">map.set(<span class="string">'c'</span>,<span class="string">'orange'</span>);</div><div class="line">map.set(<span class="string">'d'</span>,<span class="string">'pear'</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">of</span> map.keys())&#123;</div><div class="line"><span class="built_in">console</span>.log(key);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//循环val 同理</span></div></pre></td></tr></table></figure>
+<p>解决问题的办法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> report = <span class="function"><span class="keyword">function</span>(<span class="params">function(</span>)</span>&#123;</div><div class="line"><span class="keyword">var</span> imgs = [];</div><div class="line"><span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">src</span>) </span>&#123;</div><div class="line"><span class="keyword">var</span> img = <span class="keyword">new</span> Image();</div><div class="line">imgs.push(img);</div><div class="line">img.src =src;</div><div class="line">&#125;		</div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
 
       
 
@@ -280,7 +242,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ES6语法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
         		</li>
       		
 		</ul>
@@ -292,7 +254,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/ES6基础知识/" class="article-tag-list-link color3">ES6基础知识</a>
+        			<a href="/categories/JS/" class="article-tag-list-link color3">JS</a>
         		</li>
       		
 		</ul>
@@ -347,7 +309,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://liuyu595.github.io/2017/03/12/ES6入门笔记（二）/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://liuyu595.github.io/2017/04/25/“《javaScript设计模式与开发实践》（三）”/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -361,18 +323,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/13/hexo之入门后填坑（一）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          hexo之入门后填坑(一)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/12/ES6入门笔记（一）“/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">”ES6入门笔记（一）“</div>
+    <a href="/2017/04/25/“项目开发问题总结（一）”/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">“项目开发问题总结（一）”</div>
       <i class="icon-circle-right"></i>
     </a>
   
