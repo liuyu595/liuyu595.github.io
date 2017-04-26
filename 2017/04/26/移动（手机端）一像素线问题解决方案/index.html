@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://liuyu595.github.io">
-  <title>ES6入门笔记（四） | 奔向没有终点的旅程</title>
+  <title>移动（手机端）一像素线问题解决方案 | 奔向没有终点的旅程</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要：Promise">
+  <meta name="description" content="摘要：移动端一像素线，需要定位来解决，使他脱离文档流。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6入门笔记（四）">
-<meta property="og:url" content="https://liuyu595.github.io/2017/03/19/ES6入门笔记（四）/index.html">
+<meta property="og:title" content="移动（手机端）一像素线问题解决方案">
+<meta property="og:url" content="https://liuyu595.github.io/2017/04/26/移动（手机端）一像素线问题解决方案/index.html">
 <meta property="og:site_name" content="奔向没有终点的旅程">
-<meta property="og:description" content="摘要：Promise">
-<meta property="og:updated_time" content="2017-03-19T15:19:31.000Z">
+<meta property="og:description" content="摘要：移动端一像素线，需要定位来解决，使他脱离文档流。">
+<meta property="og:updated_time" content="2017-04-26T02:45:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6入门笔记（四）">
-<meta name="twitter:description" content="摘要：Promise">
+<meta name="twitter:title" content="移动（手机端）一像素线问题解决方案">
+<meta name="twitter:description" content="摘要：移动端一像素线，需要定位来解决，使他脱离文档流。">
   
     <link rel="alternative" href="/atom.xml" title="奔向没有终点的旅程" type="application/atom+xml">
   
@@ -175,33 +175,29 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-ES6入门笔记（四）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-移动（手机端）一像素线问题解决方案" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      ES6入门笔记（四）
+      移动（手机端）一像素线问题解决方案
     </h1>
   
 
         
-        <a href="/2017/03/19/ES6入门笔记（四）/" class="archive-article-date">
-  	<time datetime="2017-03-19T15:17:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-19</time>
+        <a href="/2017/04/26/移动（手机端）一像素线问题解决方案/" class="archive-article-date">
+  	<time datetime="2017-04-26T02:40:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要：<br>Promise</p>
-<a id="more"></a>
-<p>正文：</p>
-<h2 id="Promise-——承诺"><a href="#Promise-——承诺" class="headerlink" title="Promise:——承诺"></a>Promise:——承诺</h2><p>这是个什么鬼？大概看了下往上对于这个东西神话已经的评论！看来面对这个东西是一场硬仗～！感觉到了千军万马，只有我只身一人～！只待我上阵杀敌挥起大刀砍杀时，说时迟那时快，手起刀落才知道——尼玛他就是个<strong>Promise对象</strong>。<br>这个对象主要来传递异步操作的数据（消息），这个对象规定了三种状态：</p>
-<blockquote>
-<p>pending(等待／处理中)—&gt;Resolve(完成／fullfilled)—&gt;rejected(拒绝／失败)<br>这样的处理方式能使得ajax异步请求更加的完美；</p>
-</blockquote>
+        <p>摘要：移动端一像素线，需要定位来解决，使他脱离文档流。<br><a id="more"></a></p>
+<h5 id="正文"><a href="#正文" class="headerlink" title="正文:"></a>正文:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">.border-1px &#123;</div><div class="line">position: relative;</div><div class="line">&#125;</div><div class="line">.border-1px:after&#123;</div><div class="line">content: &apos;&apos;;</div><div class="line">position: absolute;</div><div class="line">bottom: 0;</div><div class="line">left: 0;</div><div class="line">display: block;</div><div class="line">width: 100%;</div><div class="line">border-top: 1px solid #ccc;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>新建css文件 &gt;  判断设别像素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@media(-webikit-min-device-pixel-ratio:1.5),(min-device-pixel-ratio:1.5) &#123;</div><div class="line">.border-1px &#123;</div><div class="line">&amp;::after &#123;</div><div class="line">-webikit-transfrom: scaleY(0.7);</div><div class="line">transfrom: scaleY(0.7);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">@media(-webikit-min-device-pixel-ratio:2),(min-device-pixel-ratio:2) &#123;</div><div class="line">.border-1px &#123;</div><div class="line">&amp;::after &#123;</div><div class="line">-webikit-transfrom: scaleY(0.5);</div><div class="line">transfrom: scaleY(0.5);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
 
@@ -236,24 +232,13 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">移动端</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/ES6基础知识/" class="article-tag-list-link color3">ES6基础知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -303,7 +288,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://liuyu595.github.io/2017/03/19/ES6入门笔记（四）/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://liuyu595.github.io/2017/04/26/移动（手机端）一像素线问题解决方案/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -317,18 +302,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/22/Three-js之小白入坑（一）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Three.js之小白入坑（一）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/15/ES6Tab选项卡、轮播图/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ES6Tab选项卡、轮播图</div>
+    <a href="/2017/04/25/“《javaScript设计模式与开发实践》（三）”/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">“《javaScript设计模式与开发实践》（三）”</div>
       <i class="icon-circle-right"></i>
     </a>
   
