@@ -343,15 +343,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<p>正文：</p>
-<h3 id="Sass-混合宏-、继承、占位符用法区分"><a href="#Sass-混合宏-、继承、占位符用法区分" class="headerlink" title="[Sass]混合宏 、继承、占位符用法区分"></a>[Sass]混合宏 、继承、占位符用法区分</h3><p>“什么时候用混合宏，什么时候用继承，什么时候使用占位符？”其实他们各有各的优点与缺点。<br><strong>sass 中混合宏的使用</strong><br><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//SASS中混合宏使用</span></div><div class="line">@<span class="keyword">mixin</span> mt(<span class="variable">$var</span>)&#123;</div><div class="line">    <span class="attribute">margin-top</span>: <span class="variable">$var</span>;  </div><div class="line">&#125;</div><div class="line"><span class="selector-class">.block</span> &#123;</div><div class="line">    @<span class="keyword">include</span> mt(<span class="number">5px</span>);</div><div class="line">    <span class="selector-tag">span</span> &#123;</div><div class="line">        <span class="attribute">display</span>:block;</div><div class="line">        @<span class="keyword">include</span> mt(<span class="number">5px</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.header</span> &#123;</div><div class="line">    <span class="attribute">color</span>: orange;</div><div class="line">    @<span class="keyword">include</span> mt(<span class="number">5px</span>);</div><div class="line">    <span class="selector-tag">span</span>&#123;</div><div class="line">        <span class="attribute">display</span>:block;</div><div class="line">        @<span class="keyword">include</span> mt(<span class="number">5px</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>总结：</strong>编译出来的 CSS 清晰告诉了大家，他不会自动合并相同的样式代码，如果在样式文件中调用同一个混合宏，会产生多个对应的样式代码，造成代码的冗余，这也是 CSSer 无法忍受的一件事情。不过他并不是一无事处，他可以传参数。</p>
-<p><strong>个人建议：</strong>如果你的代码块中涉及到变量，建议使用混合宏来创建相同的代码块。</p>
-<p><strong>Sass 中继承</strong><br><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.mt</span>&#123;</div><div class="line">    <span class="attribute">margin-top</span>: <span class="number">5px</span>;  </div><div class="line">&#125;</div><div class="line"><span class="selector-class">.block</span> &#123;</div><div class="line">    @<span class="keyword">extend</span> .mt;</div><div class="line">    <span class="selector-tag">span</span> &#123;</div><div class="line">        <span class="attribute">display</span>:block;</div><div class="line">        @<span class="keyword">extend</span> .mt;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.header</span> &#123;</div><div class="line">    <span class="attribute">color</span>: orange;</div><div class="line">    @<span class="keyword">extend</span> .mt;</div><div class="line">    <span class="selector-tag">span</span>&#123;</div><div class="line">        <span class="attribute">display</span>:block;</div><div class="line">        @<span class="keyword">extend</span> .mt;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>总结：</strong>使用继承后，编译出来的 CSS 会将使用继承的代码块合并到一起，通过组合选择器的方式向大家展现，比如 .mt, .block, .block span, .header, .header span。这样编译出来的代码相对于混合宏来说要干净的多，也是 CSSer 期望看到。但是他不能传变量参数。</p>
-<p><strong>个人建议：</strong>如果你的代码块不需要专任何变量参数，而且有一个基类已在文件中存在，那么建议使用 Sass 的继承。<br><strong>%占位符</strong><br><strong>总结：</strong>编译出来的 CSS 代码和使用继承基本上是相同，只是不会在代码中生成占位符 mt 的选择器。那么占位符和继承的主要区别的，“占位符是独立定义，不调用的时候是不会在 CSS 中产生任何代码；继承是首先有一个基类存在，不管调用与不调用，基类的样式都将会出现在编译出来的 CSS 代码中。”<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">%mt&#123;</div><div class="line">    <span class="attribute">margin-top</span>: <span class="number">5px</span>;  </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.block</span> &#123;</div><div class="line">    @<span class="keyword">extend</span> %mt;</div><div class="line"></div><div class="line">    <span class="selector-tag">span</span> &#123;</div><div class="line">    <span class="attribute">display</span>:block;</div><div class="line">    @<span class="keyword">extend</span> %mt;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.header</span> &#123;</div><div class="line">    <span class="attribute">color</span>: orange;</div><div class="line">    @<span class="keyword">extend</span> %mt;</div></pre></td></tr></table></figure></p>
-
+        <p>摘要：什么时候用混合宏，什么时候用继承，什么时候使用占位符？”其实他们各有各的优点与缺点。<br>
+        
+          <a class="article-more-a" href="/2017/05/18/「Sass」（一）混合、继承、占位符用法区分/#more">more >></a>
+        
       
 
       
@@ -997,7 +992,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1005,11 +1000,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongoDB</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongoDB</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">node、数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">放眼看世界 世界都亮了</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1025,15 +1032,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">放眼看世界 世界都亮了</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">node、数据库</a>
+                <a href="javascript:void(0)" class="js-tag color5">开发项目 问题总结</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1041,7 +1040,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发项目 问题总结</a>
+                <a href="javascript:void(0)" class="js-tag color3">游记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1049,15 +1048,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游记</a>
+                <a href="javascript:void(0)" class="js-tag color4">移动端</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">dome</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">移动端</a>
               </li>
             
             <div class="clearfix"></div>
