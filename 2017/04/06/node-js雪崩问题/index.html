@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://liuyu595.github.io/2017/04/06/node-js雪崩问题/index.html">
 <meta property="og:site_name" content="奔向没有终点的旅程">
 <meta property="og:description" content="雪崩问题的产生雪崩问题的产生是由于在计算机中的缓存存放在内存中，访问速度非常的快，常常加速数据的访问，让绝大多数的数据请求不被重复去做一些低级的数据读取。如果这时访问量大，高并发的情况下缓存容易失效，此时大量的请求同时涌入数据库中，数据库无法同时承受如此大的查询量。进而影响整个网站的额响应速度。">
-<meta property="og:updated_time" content="2017-04-06T07:36:49.000Z">
+<meta property="og:updated_time" content="2017-05-18T05:23:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node.js雪崩问题">
 <meta name="twitter:description" content="雪崩问题的产生雪崩问题的产生是由于在计算机中的缓存存放在内存中，访问速度非常的快，常常加速数据的访问，让绝大多数的数据请求不被重复去做一些低级的数据读取。如果这时访问量大，高并发的情况下缓存容易失效，此时大量的请求同时涌入数据库中，数据库无法同时承受如此大的查询量。进而影响整个网站的额响应速度。">
@@ -195,7 +195,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>雪崩问题的产生</strong><br>雪崩问题的产生是由于在计算机中的缓存存放在内存中，访问速度非常的快，常常加速数据的访问，让绝大多数的数据请求不被重复去做一些低级的数据读取。如果这时访问量大，高并发的情况下缓存容易失效，此时大量的请求同时涌入数据库中，数据库无法同时承受如此大的查询量。进而影响整个网站的额响应速度。<br><a id="more"></a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> select = <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>)</span>&#123;</div><div class="line">db.select (<span class="string">"SQL"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">results</span>)</span>&#123;</div><div class="line">callback(results)</div><div class="line">&#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p><strong>雪崩问题的产生</strong><br>雪崩问题的产生是由于在计算机中的缓存存放在内存中，访问速度非常的快，常常加速数据的访问，让绝大多数的数据请求不被重复去做一些低级的数据读取。如果这时访问量大，高并发的情况下缓存容易失效，此时大量的请求同时涌入数据库中，数据库无法同时承受如此大的查询量。进而影响整个网站的额响应速度。<br><a id="more"></a><br>正文：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> select = <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>)</span>&#123;</div><div class="line">db.select (<span class="string">"SQL"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">results</span>)</span>&#123;</div><div class="line">callback(results)</div><div class="line">&#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>如果站点刚刚启动，这时缓存中是不存在数据的，而访问量很大，同时执行同一句的SQL会被发送到数据库中反复查询。<br>改进方法一：添加一个状态锁。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> status = <span class="string">"ready"</span>;</div><div class="line"><span class="keyword">var</span> select = <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>&#123;</div><div class="line"><span class="keyword">if</span> (status === <span class="string">"ready"</span>)&#123;</div><div class="line">status = <span class="string">"pending"</span>	;</div><div class="line">db.select(<span class="string">"SQL"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">results</span>)</span>&#123;                      status = <span class="string">"ready"</span>;</div><div class="line">callback(results);</div><div class="line">&#125;)</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>但是在这种情况下会连续多次调用select( )时，只调用第一次的请求。（能不能用闭包处理此方法呢？～我也不知道，等什么时候不忙了，在研究这个问题吧～！大概想了下这个问题，感觉蛮麻烦的。）<br><strong>利用时间队列解决雪崩问题</strong><br>在订阅发布事件模式中，有一个once（）方法，通过它添加的监听器还能执行一次，执行之后，就会与实践的关联移除。这个特性可以帮我们过滤一些重复性的请求问题。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> proxy = <span class="keyword">new</span> events.EvenEmitter();</div><div class="line"><span class="keyword">var</span> status = <span class="string">"ready"</span>;</div><div class="line"><span class="keyword">var</span> select = <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>)</span>&#123;</div><div class="line">proxy.once(<span class="string">"selected"</span>,callback);</div><div class="line"><span class="keyword">if</span>(status === <span class="string">"ready"</span>)&#123;</div><div class="line">status = <span class="string">"pending"</span>;</div><div class="line">db.select(<span class="string">"SQL"</span>,<span class="function"><span class="keyword">function</span> (<span class="params">results</span>)</span>&#123;</div><div class="line">proxy.emit(<span class="string">"selected"</span>,results);</div><div class="line">status = <span class="string">"ready"</span>;</div><div class="line">&#125;)</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
@@ -428,11 +428,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ES6语法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -440,15 +444,11 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongoDB</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">node、数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -456,7 +456,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">放眼看世界 世界都亮了</a>
+                <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -464,11 +464,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发项目 问题总结</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游记</a>
+                <a href="javascript:void(0)" class="js-tag color2">放眼看世界 世界都亮了</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">node、数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css  预编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开发项目 问题总结</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -476,11 +488,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">移动端</a>
+                <a href="javascript:void(0)" class="js-tag color3">游记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">dome</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">移动端</a>
               </li>
             
             <div class="clearfix"></div>
