@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://liuyu595.github.io">
-  <title>Tag: 游记 | 奔向没有终点的旅程</title>
+  <title>构建Node Web程序 | 奔向没有终点的旅程</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="奔向没有终点的旅程">
-<meta property="og:url" content="https://liuyu595.github.io/tags/游记/index.html">
+  <meta name="description" content="摘要：Node Web程序搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="构建Node Web程序">
+<meta property="og:url" content="https://liuyu595.github.io/2017/05/21/构建Node-Web程序/index.html">
 <meta property="og:site_name" content="奔向没有终点的旅程">
+<meta property="og:description" content="摘要：Node Web程序搭建">
+<meta property="og:updated_time" content="2017-05-21T04:15:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="奔向没有终点的旅程">
+<meta name="twitter:title" content="构建Node Web程序">
+<meta name="twitter:description" content="摘要：Node Web程序搭建">
   
     <link rel="alternative" href="/atom.xml" title="奔向没有终点的旅程" type="application/atom+xml">
   
@@ -151,60 +155,181 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-构建Node-Web程序" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/18/庐山游记/" class="archive-article-date">
-  	<time datetime="2017-04-18T13:46:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/18/庐山游记/">庐山游记</a>
+    <h1 class="article-title" itemprop="name">
+      构建Node Web程序
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/05/21/构建Node-Web程序/" class="archive-article-date">
+  	<time datetime="2017-05-21T04:10:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘要：Node Web程序搭建<br><a id="more"></a><br>正文：<br><strong>目录：</strong></p>
+<p>[toc]</p>
+<h3 id="搭建简单的静态文件服务器"><a href="#搭建简单的静态文件服务器" class="headerlink" title="搭建简单的静态文件服务器"></a>搭建简单的静态文件服务器</h3><p>很多的Web程序的需求即使不完全相同也有相似的地方，而静态文件（CSS、JavaScript、图片）服务肯定是其中之一。下面就自己做一个静态文件服务器加深下对Node底层文件系统api。<br>每一个静态文件服务器都有一个根目录，也就是提供文件服务的基础目录。在你即将创建的服务器上定义一个root变量，它将作为我们这个静态文件服务器的根目录：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http =<span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"><span class="keyword">var</span> parse = <span class="built_in">require</span>(<span class="string">'url'</span>).parse;<span class="comment">//解析</span></div><div class="line"><span class="keyword">var</span> join = <span class="built_in">require</span>(<span class="string">'path'</span>).join</div><div class="line"></div><div class="line"><span class="keyword">var</span> root =_dirname;</div><div class="line"></div><div class="line"><span class="keyword">var</span> server = http.createSever(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</div><div class="line"><span class="keyword">var</span> url = parse(req.url);</div><div class="line"><span class="keyword">var</span> path = join(root,url.pathname);</div><div class="line">&#125;);</div><div class="line">server.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>_dirname在node中是一个神奇的变量，他的值是该文件所在目录的路径。_dirname的神奇指出就在于，它在同一个程序中可以有不通的值，如果你有分散在不同的目录中的文件的话。</p>
+</blockquote>
+<p>[注]<a href="https://en.wikipedia.org/wiki/Directory_traversal_attack" target="_blank" rel="external">目录遍历攻击</a></p>
+<p>有了文件路径，还需要传输文件的内容。这个可以用高层流式硬盘访问fs.REadStream完成，它是node中Stream类之一。这个类在从硬盘中读取文件的过程中会发射data事件。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http =<span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"><span class="keyword">var</span> parse = <span class="built_in">require</span>(<span class="string">'url'</span>).parse;<span class="comment">//解析</span></div><div class="line"><span class="keyword">var</span> join = <span class="built_in">require</span>(<span class="string">'path'</span>).join</div><div class="line"></div><div class="line"><span class="keyword">var</span> root =_dirname;</div><div class="line"></div><div class="line"><span class="keyword">var</span> server = http.createSever(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</div><div class="line"><span class="keyword">var</span> url = parse(req.url);</div><div class="line"><span class="comment">//创建绝对路径</span></div><div class="line"><span class="keyword">var</span> path = join(root,url.pathname);</div><div class="line"><span class="comment">//创建fs.ReadStream</span></div><div class="line"><span class="keyword">var</span> stream = fs.createReadStream(path);</div><div class="line">stream.on(<span class="string">'data'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>)</span>&#123;</div><div class="line">res.write(chunk);</div><div class="line">&#125;);</div><div class="line">stream.on(<span class="string">'end'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">res.end();</div><div class="line">&#125;)</div><div class="line">&#125;);</div><div class="line">server.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure></p>
+<p>这个文件服务器基本能能用了，但是缺少细节。<br>接下来优化数据传输，同时精简下代码。</p>
+<h4 id="用STREAM-PIPE-优化数据传输"><a href="#用STREAM-PIPE-优化数据传输" class="headerlink" title="用STREAM.PIPE( )优化数据传输"></a>用STREAM.PIPE( )优化数据传输</h4><p>尽管了解fs.ReadStream的工作机制以及它那种方式的灵活性很重要，但是Node还提供了更高级的实现机制：Stream.pipe( )。用这种方法可以极大简化服务器的代码。<br>参考：<a href="http://blog.csdn.net/vieri_32/article/details/48376547" target="_blank" rel="external">理解nodejs的stream和pipe机制 </a></p>
+<h3 id="node-js处理服务器错误"><a href="#node-js处理服务器错误" class="headerlink" title="node.js处理服务器错误"></a>node.js处理服务器错误</h3><p>为了服务器不会被error事件抛出后搞垮，都会去监听error事件。像fs.ReadStream这样的流只是专用的EventEmitter,有预先定义data和end等实现，默认情况下，如果没有监听，error事件会被抛出。<br>为了防止服务器没错误搞垮，那么就要去肩痛错误，在fs.ReadStream上祝错一个error事件处理器，返回响应状态码500表明有服务器内部错误：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">stream.pipe(res);</div><div class="line">stream.on(<span class="string">'error'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">res.statusCode = <span class="number">500</span>;</div><div class="line">res.end(<span class="string">'inrernal Server Error'</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>注册一个error事件处理器，可以不活任何可以遇见或者无法预见的错误。给客户更优雅的响应。</p>
+<h4 id="用fs-stat-实现先发制人的错误处理"><a href="#用fs-stat-实现先发制人的错误处理" class="headerlink" title="用fs.stat( )实现先发制人的错误处理"></a>用fs.stat( )实现先发制人的错误处理</h4><p>因为传输的文件是静态的，所以可以可以用stat()系统调用获取文件的相关信息，比如修改时间、字节数。在提供条件GET支持时，这些信息特别重要，浏览器可以发起请求检查它的缓存是否过去。<br>重构后的文件服务器调用了fs.stat( )用于得到文件的相关信息，比如它的大小，或者得到错误码，如果文件不存在，fs.stat会在err.code中放入ENOENT作为响应，然后你可以换回错我吗404，向客户段表明文件没雨找到。如果fs.stat( )换回了其他错误码，可以返回通用的错误码500。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> server = http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</div><div class="line"><span class="keyword">var</span> url = parse(req,url);<span class="comment">//解析URL以获取路径名</span></div><div class="line"><span class="keyword">var</span> path = join(root,url.pathname);</div><div class="line">fs.stat(path,<span class="function"><span class="keyword">function</span>(<span class="params">err,stat</span>)</span>&#123;</div><div class="line"><span class="comment">//检查文件是否存在</span></div><div class="line"><span class="keyword">if</span>(err) &#123;</div><div class="line"><span class="keyword">if</span> (<span class="string">'ENOENT'</span> == err.code) &#123;</div><div class="line">res.statusCode = <span class="number">404</span>;</div><div class="line">res.end(<span class="string">'NOT Found'</span>);</div><div class="line">&#125;eles &#123;</div><div class="line"><span class="comment">//其他错误</span></div><div class="line">res.statusCode = <span class="number">500</span>;</div><div class="line">res.end(<span class="string">'Internal Sever Error'</span>);</div><div class="line">&#125;<span class="keyword">else</span> &#123;</div><div class="line">res.setHeader(<span class="string">'Content-Length'</span>,stat.size);<span class="comment">//用stat对象的属性设置Content-Length</span></div><div class="line"><span class="keyword">var</span> stream = fs.createReadStream(path);</div><div class="line">stream.pipe(res);</div><div class="line">stream.on(<span class="string">'error'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</div><div class="line">res.statusCode = <span class="number">500</span>;</div><div class="line">res.end(<span class="string">'Internal Server Error'</span>)</div><div class="line">&#125;);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">node.js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/node.js/" class="article-tag-list-link color3">node.js</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://liuyu595.github.io/2017/05/21/构建Node-Web程序/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/05/21/node-js-异步逻辑的顺序化/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          node.js--异步逻辑的顺序化
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/05/18/getBoundingClientRect和getClientRects区别及用法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">getBoundingClientRect和getClientRects区别及用法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -227,9 +352,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://liuyu595.github.io">
-  <title>Tag: 游记 | 奔向没有终点的旅程</title>
+  <title>node.js--异步逻辑的顺序化 | 奔向没有终点的旅程</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="奔向没有终点的旅程">
-<meta property="og:url" content="https://liuyu595.github.io/tags/游记/index.html">
+  <meta name="description" content="摘要：文章对串行化流程和并行化流程做了详细的讲解。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node.js--异步逻辑的顺序化">
+<meta property="og:url" content="https://liuyu595.github.io/2017/05/21/node-js-异步逻辑的顺序化/index.html">
 <meta property="og:site_name" content="奔向没有终点的旅程">
+<meta property="og:description" content="摘要：文章对串行化流程和并行化流程做了详细的讲解。">
+<meta property="og:updated_time" content="2017-05-21T04:19:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="奔向没有终点的旅程">
+<meta name="twitter:title" content="node.js--异步逻辑的顺序化">
+<meta name="twitter:description" content="摘要：文章对串行化流程和并行化流程做了详细的讲解。">
   
     <link rel="alternative" href="/atom.xml" title="奔向没有终点的旅程" type="application/atom+xml">
   
@@ -151,60 +155,173 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-node-js-异步逻辑的顺序化" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/18/庐山游记/" class="archive-article-date">
-  	<time datetime="2017-04-18T13:46:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/18/庐山游记/">庐山游记</a>
+    <h1 class="article-title" itemprop="name">
+      node.js--异步逻辑的顺序化
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/05/21/node-js-异步逻辑的顺序化/" class="archive-article-date">
+  	<time datetime="2017-05-21T04:11:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>摘要：文章对串行化流程和并行化流程做了详细的讲解。<br><a id="more"></a><br>正文：<br><strong>目录</strong></p>
+<p>[toc]</p>
+<p>在异步程序的执行过程中，有些任务可能随时发生变化，跟程序中的其他部分在做什么没有关系，什么时候做这些任务都不会出问题。<br>异步任务顺序执行的概念被成为流程控制。这种控制分为两类：<strong>串行和并行</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">st=&gt;start: 开始</div><div class="line">e=&gt;end: 在任务三结束后继续</div><div class="line">op=&gt;operation: 任务一</div><div class="line">ox=&gt;operation: 任务二</div><div class="line">od=&gt;operation: 任务三</div><div class="line">cond=&gt;condition: </div><div class="line"></div><div class="line">st-&gt;op-&gt;ox-&gt;od-&gt;e</div></pre></td></tr></table></figure>
+<p>并行任务就是说：当任务开始的时候，所有任务同时执行，当所有任务结束之后继续（并行图画不出来～剁手～！！(｡ì _ í｡)）～！</p>
+<h3 id="什么时候使用串行流程控制"><a href="#什么时候使用串行流程控制" class="headerlink" title="什么时候使用串行流程控制"></a>什么时候使用串行流程控制</h3><p>使用回调让几个异步任务按顺序执行，但是如果任务很多，必须组织以下，否则过多的回调嵌套会把代码高的很乱。<br>下面的代码就是直接用回调让任务按顺序执行的。(^○^)上代码～～！<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'I execute fist'</span>);</div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'I execute next'</span>);</div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'I execute last'</span>);</div><div class="line">&#125;,<span class="number">100</span>);</div><div class="line">&#125;,<span class="number">500</span>);</div><div class="line">&#125;,<span class="number">1000</span>);</div></pre></td></tr></table></figure></p>
+<p>下面用社区贡献的工具实现串行化控制<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// npm install nimble 安装流程控制工具</span></div><div class="line"><span class="keyword">var</span> flow = <span class="built_in">require</span>(<span class="string">'nimble'</span>);<span class="comment">//给Nimble 是一个函数数组，让它一个接一个的执行</span></div><div class="line">flow.series(&#123;</div><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>&#123;</div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'I execute first.'</span>);</div><div class="line">callback();</div><div class="line">&#125;,<span class="number">1000</span>);</div><div class="line">&#125;,</div><div class="line"><span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'I execute next.'</span>);</div><div class="line">callback();</div><div class="line">&#125;,<span class="number">500</span>);			</div><div class="line">&#125;,</div><div class="line"><span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'I execute last.'</span>);</div><div class="line">callback();</div><div class="line">&#125;,<span class="number">100</span>);			</div><div class="line">&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="实现串行化流程控制"><a href="#实现串行化流程控制" class="headerlink" title="实现串行化流程控制"></a>实现串行化流程控制</h3><p>为了有那个串行化流程控制几个异步任务按顺序执行，首先需要把这些任务按照预期执行的顺序放到一个数组。这个数组将起到队列的作用。<br>下面来创建一个例子，用命令行来添加安装辅助模块。</p>
+<blockquote>
+<p>mkdir story<br>cd story<br>npm install request<br>npm install htmlparser</p>
+</blockquote>
+<p>requset模块是个经过简化的HPPT客户端，你可以用它获取RSS数据。htmlparser模块能把原始的<a href="http://www.w3school.com.cn/rss/rss_intro.asp" target="_blank" rel="external">RSS</a>数据转化成javaScript数据结构。<br>接下来在新目录中新建一个random_story.js文件。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"><span class="keyword">var</span> request = <span class="built_in">require</span>(<span class="string">'request'</span>);</div><div class="line"><span class="keyword">var</span> htmlparser = <span class="built_in">require</span>(<span class="string">'htmlparser'</span>);</div><div class="line"><span class="keyword">var</span> configFilename = <span class="string">'./ress_feeds.txt'</span>;</div><div class="line"></div><div class="line"><span class="comment">//1.确保包含RSS预订源URL列表的文件存在</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkForRSSFile</span> (<span class="params"></span>)</span>&#123;</div><div class="line">fs.exists(configFilename ,<span class="function"><span class="keyword">function</span>(<span class="params">exists</span>) </span>&#123;</div><div class="line"><span class="keyword">if</span>(!exists)</div><div class="line"><span class="comment">//只要有错我就尽早返回</span></div><div class="line"><span class="keyword">return</span> next (<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Missing RSS file'</span>+ configFilename));</div><div class="line">next(<span class="literal">null</span>, configFilename)</div><div class="line">&#125;)；</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">readRSSFile</span> (<span class="params">configFilename</span>) </span>&#123;</div><div class="line"><span class="comment">//读取并解析包含预订源URL的文件</span></div><div class="line">fs.readFile(configFilename,<span class="function"><span class="keyword">function</span>(<span class="params">err,feedList</span>)</span>&#123;</div><div class="line"><span class="keyword">if</span>(err) <span class="keyword">return</span> next (err);</div><div class="line"><span class="comment">//将预订源URL列表转换成字符串，然后分割成一个数组</span></div><div class="line">feedList = feedList.toString().replace(<span class="regexp">/^\s+|\s+$/g</span>,<span class="string">''</span>).split(<span class="string">'\n'</span>);</div><div class="line"><span class="keyword">var</span> random = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*feedList.length);</div><div class="line">next(<span class="literal">null</span>,feedList[random]);</div><div class="line">&#125;);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">downloadRSSFeed</span>(<span class="params">feedUrl</span>) </span>&#123;</div><div class="line"><span class="comment">//3.向选定的预订源发送HTTP请求以获取数据</span></div><div class="line">request (&#123;<span class="attr">uri</span>: rendUrl&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,res,body</span>)</span>&#123;</div><div class="line"><span class="keyword">if</span>(err) <span class="keyword">return</span> nex(err);</div><div class="line"><span class="keyword">if</span>(res.statusCode !=<span class="number">200</span>)</div><div class="line"><span class="keyword">return</span> next(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Abnormal response status code'</span>))</div><div class="line">next(<span class="literal">null</span>,bpdy);</div><div class="line">&#125;);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">parseRSSFeed</span> (<span class="params">rss</span>) </span>&#123;</div><div class="line"><span class="comment">//4.将预订源数据解析到一个条目数组中</span></div><div class="line"><span class="keyword">var</span> handler = <span class="keyword">new</span> htmlparser.RssHandler();</div><div class="line"><span class="keyword">var</span> parser = <span class="keyword">new</span> htmlparser.Parser(handler);</div><div class="line">parser.parseComplete(rss);</div><div class="line"><span class="keyword">if</span> (!handler.dom.items.length)</div><div class="line"><span class="keyword">return</span> next(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'No RSS items found'</span>));</div><div class="line"><span class="keyword">var</span> itm = handler.dom.items.shift();</div><div class="line"><span class="comment">//如果有数据，显示第一个预订源条目的标题和url</span></div><div class="line"><span class="built_in">console</span>.log(item.title);</div><div class="line"><span class="built_in">console</span>.log(item.link);</div><div class="line">&#125;</div><div class="line"><span class="comment">//把所有要做的任务按顺序添加到一个数组中</span></div><div class="line"><span class="keyword">var</span> tasks = [checkForRSSFile,</div><div class="line">readRSSFile,</div><div class="line">downloadRSSFeed,</div><div class="line">parseRSSFeed</div><div class="line">];</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">next</span>(<span class="params">err,result</span>) </span>&#123;</div><div class="line"><span class="comment">//如果错误，则抛出异常</span></div><div class="line"><span class="keyword">if</span>(err) <span class="keyword">throw</span> err;</div><div class="line"><span class="comment">//从任务数组中取出下一个任务</span></div><div class="line"><span class="keyword">var</span> currentTask = tasks.shift();</div><div class="line"><span class="keyword">if</span> (currentTask) &#123;</div><div class="line">currentTask(result);</div><div class="line">&#125;</div><div class="line">&#125;			</div><div class="line">next();     <span class="comment">//开始任务的串行化执行</span></div></pre></td></tr></table></figure></p>
+<h3 id="实现并行化流程控制"><a href="#实现并行化流程控制" class="headerlink" title="实现并行化流程控制"></a>实现并行化流程控制</h3><p>为了让异步任务并行执行，仍然要把任务放到数组中，但是与串行的流程控制不同，存放的顺序无关紧要。诶个任务都应该调用处理函数增加已完成任务计数。当所有任务都完成后，处理器应该执行后续的逻辑。<br>下面做一个并行化流程控制的例子。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">* Created by liuyu on 2017/5/20.</div><div class="line">*/</div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"><span class="keyword">var</span> completedTasks = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> tasks = [];</div><div class="line"><span class="keyword">var</span> wordCounts = &#123;&#125;;</div><div class="line"><span class="keyword">var</span> filesDir = <span class="string">'./text'</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkIfComplete</span>(<span class="params"></span>) </span>&#123;</div><div class="line">completedTasks++;</div><div class="line"><span class="keyword">if</span> (completedTasks == tasks.length) &#123;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> index <span class="keyword">in</span> wordCounts) &#123;</div><div class="line"><span class="built_in">console</span>.log(index +<span class="string">':'</span>+wordCounts[index]);</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">countWordsInText</span>(<span class="params">text</span>) </span>&#123;</div><div class="line"><span class="keyword">var</span> words = text</div><div class="line">.toString()</div><div class="line">.toLowerCase()</div><div class="line">.split(<span class="regexp">/\W+/</span>)</div><div class="line">.sort();</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> index <span class="keyword">in</span> words) &#123;</div><div class="line"><span class="keyword">var</span> word = words[index];</div><div class="line"><span class="keyword">if</span> (word) &#123;</div><div class="line">wordCounts[word] = (wordCounts[word]) ?wordCounts[word] +<span class="number">1</span>:<span class="number">1</span>;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">fs.readdir(filesDir,<span class="function"><span class="keyword">function</span> (<span class="params">err,filse</span>) </span>&#123;</div><div class="line"><span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> index <span class="keyword">in</span> files) &#123;</div><div class="line"><span class="keyword">var</span> task = (<span class="function"><span class="keyword">function</span> (<span class="params">file</span>) </span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">fs.readFile(file, <span class="function"><span class="keyword">function</span> (<span class="params">err,text</span>) </span>&#123;</div><div class="line"><span class="keyword">if</span>(err) <span class="keyword">throw</span> err;</div><div class="line">countWordsInText(text);</div><div class="line">checkIfComplete()</div><div class="line">&#125;);</div><div class="line">&#125;</div><div class="line">&#125;)(filesDir+<span class="string">'/'</span>+files[index]);</div><div class="line">tasks.push(task);</div><div class="line">&#125;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> task <span class="keyword">in</span> tasks) &#123;</div><div class="line">tasks[task]();</div><div class="line">&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="附加"><a href="#附加" class="headerlink" title="附加"></a>附加</h3><p>PS：把所有代码整合到一个文件夹下后，可能意味这被引入文件在执行逻辑会影响全局的作用域。<br>也就是说被引用文件创建的任何变量即生命任何函数都可能会被覆盖包含他的应用程序创建的变量和声明函数。<br>代码分开放置后不会污染全局命名空间。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/node.js/" class="article-tag-list-link color3">node.js</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://liuyu595.github.io/2017/05/21/node-js-异步逻辑的顺序化/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/05/21/构建Node-Web程序/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">构建Node Web程序</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -227,9 +344,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
