@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://liuyu595.github.io/2017/05/21/构建Node-Web程序/index.html">
 <meta property="og:site_name" content="奔向没有终点的旅程">
 <meta property="og:description" content="摘要：Node Web程序搭建">
-<meta property="og:updated_time" content="2017-05-21T04:15:15.000Z">
+<meta property="og:updated_time" content="2017-05-21T15:01:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="构建Node Web程序">
 <meta name="twitter:description" content="摘要：Node Web程序搭建">
@@ -175,8 +175,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要：Node Web程序搭建<br><a id="more"></a><br>正文：<br><strong>目录：</strong></p>
-<p>[toc]</p>
+        <p>摘要：Node Web程序搭建<br><a id="more"></a><br>正文：</p>
 <h3 id="搭建简单的静态文件服务器"><a href="#搭建简单的静态文件服务器" class="headerlink" title="搭建简单的静态文件服务器"></a>搭建简单的静态文件服务器</h3><p>很多的Web程序的需求即使不完全相同也有相似的地方，而静态文件（CSS、JavaScript、图片）服务肯定是其中之一。下面就自己做一个静态文件服务器加深下对Node底层文件系统api。<br>每一个静态文件服务器都有一个根目录，也就是提供文件服务的基础目录。在你即将创建的服务器上定义一个root变量，它将作为我们这个静态文件服务器的根目录：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http =<span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"><span class="keyword">var</span> parse = <span class="built_in">require</span>(<span class="string">'url'</span>).parse;<span class="comment">//解析</span></div><div class="line"><span class="keyword">var</span> join = <span class="built_in">require</span>(<span class="string">'path'</span>).join</div><div class="line"></div><div class="line"><span class="keyword">var</span> root =_dirname;</div><div class="line"></div><div class="line"><span class="keyword">var</span> server = http.createSever(<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</div><div class="line"><span class="keyword">var</span> url = parse(req.url);</div><div class="line"><span class="keyword">var</span> path = join(root,url.pathname);</div><div class="line">&#125;);</div><div class="line">server.listen(<span class="number">3000</span>);</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>_dirname在node中是一个神奇的变量，他的值是该文件所在目录的路径。_dirname的神奇指出就在于，它在同一个程序中可以有不通的值，如果你有分散在不同的目录中的文件的话。</p>
@@ -418,11 +417,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ES6语法</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color1">ES6语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -438,14 +437,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">node、数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
@@ -454,11 +445,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">放眼看世界 世界都亮了</a>
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color4">node、数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">放眼看世界 世界都亮了</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -466,11 +461,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发项目 问题总结</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游记</a>
+                <a href="javascript:void(0)" class="js-tag color5">开发项目 问题总结</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,19 +473,27 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css  预编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">感悟</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">dome</a>
+                <a href="javascript:void(0)" class="js-tag color3">游记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css  预编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RegExp 正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">移动端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">dome</a>
               </li>
             
             <div class="clearfix"></div>

@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://liuyu595.github.io/2017/05/21/node-js-异步逻辑的顺序化/index.html">
 <meta property="og:site_name" content="奔向没有终点的旅程">
 <meta property="og:description" content="摘要：文章对串行化流程和并行化流程做了详细的讲解。">
-<meta property="og:updated_time" content="2017-05-21T04:19:44.000Z">
+<meta property="og:updated_time" content="2017-05-21T15:00:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node.js--异步逻辑的顺序化">
 <meta name="twitter:description" content="摘要：文章对串行化流程和并行化流程做了详细的讲解。">
@@ -175,9 +175,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要：文章对串行化流程和并行化流程做了详细的讲解。<br><a id="more"></a><br>正文：<br><strong>目录</strong></p>
-<p>[toc]</p>
-<p>在异步程序的执行过程中，有些任务可能随时发生变化，跟程序中的其他部分在做什么没有关系，什么时候做这些任务都不会出问题。<br>异步任务顺序执行的概念被成为流程控制。这种控制分为两类：<strong>串行和并行</strong></p>
+        <p>摘要：文章对串行化流程和并行化流程做了详细的讲解。<br><a id="more"></a><br>正文：<br>在异步程序的执行过程中，有些任务可能随时发生变化，跟程序中的其他部分在做什么没有关系，什么时候做这些任务都不会出问题。<br>异步任务顺序执行的概念被成为流程控制。这种控制分为两类：<strong>串行和并行</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">st=&gt;start: 开始</div><div class="line">e=&gt;end: 在任务三结束后继续</div><div class="line">op=&gt;operation: 任务一</div><div class="line">ox=&gt;operation: 任务二</div><div class="line">od=&gt;operation: 任务三</div><div class="line">cond=&gt;condition: </div><div class="line"></div><div class="line">st-&gt;op-&gt;ox-&gt;od-&gt;e</div></pre></td></tr></table></figure>
 <p>并行任务就是说：当任务开始的时候，所有任务同时执行，当所有任务结束之后继续（并行图画不出来～剁手～！！(｡ì _ í｡)）～！</p>
 <h3 id="什么时候使用串行流程控制"><a href="#什么时候使用串行流程控制" class="headerlink" title="什么时候使用串行流程控制"></a>什么时候使用串行流程控制</h3><p>使用回调让几个异步任务按顺序执行，但是如果任务很多，必须组织以下，否则过多的回调嵌套会把代码高的很乱。<br>下面的代码就是直接用回调让任务按顺序执行的。(^○^)上代码～～！<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'I execute fist'</span>);</div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'I execute next'</span>);</div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'I execute last'</span>);</div><div class="line">&#125;,<span class="number">100</span>);</div><div class="line">&#125;,<span class="number">500</span>);</div><div class="line">&#125;,<span class="number">1000</span>);</div></pre></td></tr></table></figure></p>
@@ -304,6 +302,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2017/05/21/正则表达式（一）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          正则表达式（一）
+        
+      </div>
+    </a>
+  
   
     <a href="/2017/05/21/构建Node-Web程序/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">构建Node Web程序</div>
@@ -410,11 +417,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ES6语法</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color1">ES6语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -430,14 +437,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">node、数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
@@ -446,11 +445,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">放眼看世界 世界都亮了</a>
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+                <a href="javascript:void(0)" class="js-tag color4">node、数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">放眼看世界 世界都亮了</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -458,11 +461,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发项目 问题总结</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游记</a>
+                <a href="javascript:void(0)" class="js-tag color5">开发项目 问题总结</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -470,19 +473,27 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css  预编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">感悟</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">dome</a>
+                <a href="javascript:void(0)" class="js-tag color3">游记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css  预编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RegExp 正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">移动端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">dome</a>
               </li>
             
             <div class="clearfix"></div>

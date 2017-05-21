@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://liuyu595.github.io">
-  <title>杂谈（一） | 奔向没有终点的旅程</title>
+  <title>正则表达式（一） | 奔向没有终点的旅程</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要：翻开自己的笔记本看到了这篇文章，写于2015年农历八月十五。现在回想一下也不知道是什么情况下写的了。剩下的只有莫名的伤感。">
+  <meta name="description" content="摘要：第一部分；总最全正则表达式总结：验证QQ号、手机号、Email、中文、邮编、身份证等。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="杂谈（一）">
-<meta property="og:url" content="https://liuyu595.github.io/2017/03/26/杂谈（一）/index.html">
+<meta property="og:title" content="正则表达式（一）">
+<meta property="og:url" content="https://liuyu595.github.io/2017/05/21/正则表达式（一）/index.html">
 <meta property="og:site_name" content="奔向没有终点的旅程">
-<meta property="og:description" content="摘要：翻开自己的笔记本看到了这篇文章，写于2015年农历八月十五。现在回想一下也不知道是什么情况下写的了。剩下的只有莫名的伤感。">
-<meta property="og:updated_time" content="2017-03-26T13:33:40.000Z">
+<meta property="og:description" content="摘要：第一部分；总最全正则表达式总结：验证QQ号、手机号、Email、中文、邮编、身份证等。">
+<meta property="og:updated_time" content="2017-05-21T14:49:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="杂谈（一）">
-<meta name="twitter:description" content="摘要：翻开自己的笔记本看到了这篇文章，写于2015年农历八月十五。现在回想一下也不知道是什么情况下写的了。剩下的只有莫名的伤感。">
+<meta name="twitter:title" content="正则表达式（一）">
+<meta name="twitter:description" content="摘要：第一部分；总最全正则表达式总结：验证QQ号、手机号、Email、中文、邮编、身份证等。">
   
     <link rel="alternative" href="/atom.xml" title="奔向没有终点的旅程" type="application/atom+xml">
   
@@ -155,38 +155,92 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-杂谈（一）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-正则表达式（一）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      杂谈（一）
+      正则表达式（一）
     </h1>
   
 
         
-        <a href="/2017/03/26/杂谈（一）/" class="archive-article-date">
-  	<time datetime="2017-03-26T13:24:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-26</time>
+        <a href="/2017/05/21/正则表达式（一）/" class="archive-article-date">
+  	<time datetime="2017-05-21T14:43:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要：翻开自己的笔记本看到了这篇文章，写于2015年农历八月十五。现在回想一下也不知道是什么情况下写的了。剩下的只有莫名的伤感。<br><a id="more"></a><br>正文：<br>港囧，一部自己感觉很纠结的片子。等了20年就是为了证明我的青春岁月真实的存在过。</p>
-<p>15岁觉得游泳难，放弃游泳，到18岁遇到一个你喜欢的人约你去游泳，你只好说“我不会耶”。18岁觉得英文难，放弃英文，28岁出现一个很棒但要会英文的工作，你只好说“我不会耶”。人生前期越嫌麻烦，越懒得学，后来就越可能错过让你动心的人和事，错过新风景。</p>
-<p>怎样度过人生的低潮期？安静地等待；好好睡觉；锻炼身体，无论何时好的体魄都用得着；和知心的朋友谈天，基本上不发牢骚，主要是回忆快乐的时光；多读书，看一些传记，增长知识，顺带还可瞧瞧别人倒霉的时候是怎么挺过去的；趁机做家务，把平时忙碌顾不上的活儿都干完。</p>
-<p>有时候，我们放不开不是因为失去，而是心疼自己的付出。</p>
-<p>以前我总是习惯焦虑，每次都期望有人指明我要走的路，可人终究是孤独的，每个人的人生都有别人参与，却都要自己完成。现在我已经学会面对和接受孤独，即使伤疤没磨练的足够硬实，也不再依赖别人给的铠甲。恩，孤独的人，都会很快长大。</p>
-<p>一座城市令你念念不忘，大抵是因为，那里有你深爱的人和一去不复返的青春。</p>
-<p>成长的很大一部分，是接受。接受分道扬镳，接受世事无常，接受孤独挫折，接受突如其来的无力感，接受自己的缺点。然后发自内心地去改变，找到一个平衡点。跟世界相处，首先是和自己相处。天黑开盏灯，落雨带把伞，难过归难过，但也不作死。</p>
-<p>如果你感到委屈，证明你还有底线；如果你感到迷茫，证明你还有追求；如果你感到痛苦，证明你还有力气；如果你感到绝望，证明你还有希望。从某种意义上，你永远都不会被打倒，因为你还有你。</p>
-<p>无论贫穷还是富足，开心的人最令人羡慕。</p>
-<p>有时像患了忧郁症一样，会突然心情不好。 偶尔像患了自闭症似的，不想说话也不想动。别人问起，也不知道该怎样回答。不是假装沉默，只是无力诉说。或许每个人都有一个死角，自己走不出来，别人也闯不进去，我把最深沉的秘密放在那里，你不懂我，我不怪你。</p>
-<p>比起并肩、牵手、接吻、很多人最喜欢的应该还是拥抱吧。当你用双臂紧紧把一个人抱在怀里时，没什么比那更能让人体会到什么叫做拥有了。</p>
-<p>感谢时光，不偏不倚，躲过了风口浪尖，让我恰好遇见你。</p>
+        <p>摘要：第一部分；总最全正则表达式总结：验证QQ号、手机号、Email、中文、邮编、身份证等。<br><a id="more"></a><br>正文：</p>
+<h2 id="什么是-RegExp"><a href="#什么是-RegExp" class="headerlink" title="什么是 RegExp"></a>什么是 RegExp</h2><ul>
+<li>RegExp 是正则表达式（Regular expression）的缩写，作用是对字符串执行模式匹配。</li>
+<li>通常用于格式验证、正则替换、查找子串等</li>
+<li>各种编程语言的正则表达式基本相同，不同的语言可能会有一些细小的差别</li>
+<li><a href="http://www.w3school.com.cn/js/js_obj_regexp.asp" target="_blank" rel="external">RegExp入门</a></li>
+<li><a href="http://www.w3school.com.cn/jsref/jsref_obj_regexp.asp" target="_blank" rel="external">完整的 RegExp 对象参考手册</a></li>
+</ul>
+<h2 id="RegExp-语法"><a href="#RegExp-语法" class="headerlink" title="RegExp 语法"></a>RegExp 语法</h2><p>直接实例化var reg = new RegExp(pattern [, flags]);// 隐式创建(推荐)var reg = /pattern/flags;</p>
+<ul>
+<li>参数 pattern 是一个字符串，指定了正则表达式的模式或其他正则表达式。</li>
+<li>参数 [, flags] 是一个可选的字符串，包含属性 “g”（global ）、”i” （ignoreCase）和 “m”（multiline）。</li>
+<li>ECMAScript 标准化之前，不支持 m 属性。如果 pattern 是正则表达式，而不是字符串，则必须省略该参数。<br>| 修饰符     |    表述|<br>| :——–:| :——–:|<br>| i  | 执行对大小写不敏感的匹配 |<br>| g     |   执行全局匹配（查找所有匹配而非在找到第一个匹配后停止） |<br>| m     |   执行多行匹配 | </li>
+</ul>
+<h2 id="概念：子表达式"><a href="#概念：子表达式" class="headerlink" title="概念：子表达式"></a>概念：子表达式</h2><p>在正则表达式中，使用括号括起来的内容是一个子表达式，子表达式匹配到的内容会被系统捕获至缓冲区，使用\n（n：数字）来反向引用系统的第n号缓冲区的内容。</p>
+<p>场景：后面的内容要求与前面的一致，可以使用子表达式</p>
+<p>// 查找连续相同的四个数字var str = “1212ab45677778cd”;var reg = /(\d)\1\1\1/gi;<br>console.log(str.match(reg));// OUTPUT:7777</p>
+<h2 id="概念：方括号（字符簇）"><a href="#概念：方括号（字符簇）" class="headerlink" title="概念：方括号（字符簇）"></a>概念：方括号（字符簇）</h2><ul>
+<li>[abc] 查找方括号之间的任何字符。</li>
+<li>[^abc] 查找任何不在方括号之间的字符。</li>
+<li>[0-9] 查找任何从 0 至 9 的数字。同 \d</li>
+<li>[a-z] 查找任何从小写 a 到小写 z 的字符。</li>
+<li>[A-Z] 查找任何从大写 A 到大写 Z 的字符。</li>
+<li>[A-z] 查找任何从大写 A 到小写 z 的字符。</li>
+<li>[0-9a-zA-Z]</li>
+<li>(red|blue|green) 查找任何指定的选项。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var str = &quot;Is this all there is?&quot;;var patt1 = /[a-h]/g;</div><div class="line">document.write(str.match(patt1));// OUTPUT:h,a,h,e,e</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="概念：元字符"><a href="#概念：元字符" class="headerlink" title="概念：元字符"></a>概念：元字符</h2><p>元字符（Metacharacter）是拥有特殊含义的字符： </p>
+<ul>
+<li>\ 转义符 （、）、/、\ </li>
+<li>| 选择匹配符，可以匹配多个规则 </li>
+<li>. 查找单个字符，除了换行和行结束符。 </li>
+<li>\w 查找单词字符。字符 ( 字母 ，数字，下划线_ ) </li>
+<li>\W 查找非单词字符。 </li>
+<li>\d 查找数字。 </li>
+<li>\D 查找非数字字符。 </li>
+<li>\s 查找空白字符。空格 </li>
+<li>\S 查找非空白字符。 </li>
+<li>\b 匹配单词边界。 </li>
+<li>\B 匹配非单词边界。 </li>
+<li>\0 查找 NUL 字符。 </li>
+<li>\n 查找换行符。 </li>
+<li>\f 查找换页符。 </li>
+<li>\r 查找回车符。 </li>
+<li>\t 查找制表符。 </li>
+<li>\v 查找垂直制表符。 </li>
+<li>\xxx 查找以八进制数 xxx 规定的字符。 </li>
+<li>\xdd 查找以十六进制数 dd 规定的字符。 </li>
+<li>\uxxxx 查找以十六进制数 xxxx 规定的 Unicode 字符。</li>
+</ul>
+<h2 id="概念：量词"><a href="#概念：量词" class="headerlink" title="概念：量词"></a>概念：量词</h2><ul>
+<li>n+ 匹配任何包含至少一个 n 的字符串。同 {1,}</li>
+<li>n* 匹配任何包含零个或多个 n 的字符串。同 {0,}</li>
+<li>n? 匹配任何包含零个或一个 n 的字符串。同 {0,1}</li>
+<li>n{X} 匹配包含 X 个 n 的序列的字符串。</li>
+<li>n{X,Y} 匹配包含 X 至 Y 个 n 的序列的字符串。</li>
+<li>n{X,} 匹配包含至少 X 个 n 的序列的字符串。</li>
+<li>n$ 匹配任何结尾为 n 的字符串。</li>
+<li>^n 匹配任何开头为 n 的字符串。注意 /[^a] / 和 /^ [a]/是不一样的，前者是排-除的意思，后者是代表首位。</li>
+<li>(?=n) 匹配任何其后紧接指定字符串 n 的字符串。正向预查</li>
+<li>(?!n) 匹配任何其后没有紧接指定字符串 n 的字符串。反向预查</li>
+</ul>
+<h2 id="RegExp-对象方法"><a href="#RegExp-对象方法" class="headerlink" title="RegExp 对象方法"></a>RegExp 对象方法</h2><h3 id="1-test"><a href="#1-test" class="headerlink" title="1.test( )"></a>1.test( )</h3><p>test() 方法检索字符串中是否存在指定的值。返回值是 true 或 false。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> patt1 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'e'</span>);</div><div class="line"><span class="built_in">console</span>.log(patt1.test(<span class="string">'some text'</span>));<span class="comment">// OUTPUT:truevar patt2 = new RegExp('ee');</span></div><div class="line"><span class="built_in">console</span>.log(patt2.test(<span class="string">'some text'</span>));<span class="comment">// OUTPUT:false</span></div><div class="line"><span class="comment">// 判断是不是QQ号// 1 首位不能是0  ^[1-9]// 2 必须是 [5, 11] 位的数字 \d&#123;4, 9&#125;var str = '80583600';var regexp = /^[1-9][0-9]&#123;4,10&#125;$/gim;if (regexp.test(str)) &#123;</span></div><div class="line">alert(<span class="string">'is'</span>);</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">alert(<span class="string">'no'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="2-exec"><a href="#2-exec" class="headerlink" title="2.exec( )"></a>2.exec( )</h3><p>exec() 方法检索字符串中的指定值。返回值是被找到的值。如果没有发现匹配，则返回 null。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> patt1 = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'e'</span>);</div><div class="line"><span class="built_in">console</span>.log(patt1.exec(<span class="string">'some text'</span>));<span class="comment">// OUTPUT:evar patt2 = new RegExp('ee');</span></div><div class="line"><span class="built_in">console</span>.log(patt2.exec(<span class="string">'some text'</span>));<span class="comment">// OUTPUT:null</span></div></pre></td></tr></table></figure></p>
+<h3 id="3-compile"><a href="#3-compile" class="headerlink" title="3.compile( )"></a>3.compile( )</h3><p>compile() 既可以改变检索模式，也可以添加或删除第二个参数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> patt1=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"e"</span>);</div><div class="line"><span class="built_in">document</span>.write(patt1.test(<span class="string">"The best things in life are free"</span>)); <span class="comment">// true// 改变了检索模式patt1.compile("eee");</span></div><div class="line"><span class="built_in">document</span>.write(patt1.test(<span class="string">"The best things in life are free"</span>)); <span class="comment">// false</span></div></pre></td></tr></table></figure></p>
 
       
 
@@ -221,24 +275,13 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">感悟</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">RegExp 正则表达式</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/掠影生活/" class="article-tag-list-link color5">掠影生活</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -288,7 +331,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://liuyu595.github.io/2017/03/26/杂谈（一）/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://liuyu595.github.io/2017/05/21/正则表达式（一）/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -302,18 +345,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/29/《javaScript设计模式与开发实践》（一）/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/05/21/正则表达式（二）/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          《javaScript设计模式与开发实践》（一）
+          正则表达式（二）
         
       </div>
     </a>
   
   
-    <a href="/2017/03/22/Three-js之小白入坑（一）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Three.js之小白入坑（一）</div>
+    <a href="/2017/05/21/node-js-异步逻辑的顺序化/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">node.js--异步逻辑的顺序化</div>
       <i class="icon-circle-right"></i>
     </a>
   

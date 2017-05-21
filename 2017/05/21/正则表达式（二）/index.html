@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://liuyu595.github.io">
-  <title>杂谈（一） | 奔向没有终点的旅程</title>
+  <title>正则表达式（二） | 奔向没有终点的旅程</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="摘要：翻开自己的笔记本看到了这篇文章，写于2015年农历八月十五。现在回想一下也不知道是什么情况下写的了。剩下的只有莫名的伤感。">
+  <meta name="description" content="摘要：第二部分；总最全正则表达式总结：验证QQ号、手机号、Email、中文、邮编、身份证等。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="杂谈（一）">
-<meta property="og:url" content="https://liuyu595.github.io/2017/03/26/杂谈（一）/index.html">
+<meta property="og:title" content="正则表达式（二）">
+<meta property="og:url" content="https://liuyu595.github.io/2017/05/21/正则表达式（二）/index.html">
 <meta property="og:site_name" content="奔向没有终点的旅程">
-<meta property="og:description" content="摘要：翻开自己的笔记本看到了这篇文章，写于2015年农历八月十五。现在回想一下也不知道是什么情况下写的了。剩下的只有莫名的伤感。">
-<meta property="og:updated_time" content="2017-03-26T13:33:40.000Z">
+<meta property="og:description" content="摘要：第二部分；总最全正则表达式总结：验证QQ号、手机号、Email、中文、邮编、身份证等。">
+<meta property="og:updated_time" content="2017-05-21T14:59:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="杂谈（一）">
-<meta name="twitter:description" content="摘要：翻开自己的笔记本看到了这篇文章，写于2015年农历八月十五。现在回想一下也不知道是什么情况下写的了。剩下的只有莫名的伤感。">
+<meta name="twitter:title" content="正则表达式（二）">
+<meta name="twitter:description" content="摘要：第二部分；总最全正则表达式总结：验证QQ号、手机号、Email、中文、邮编、身份证等。">
   
     <link rel="alternative" href="/atom.xml" title="奔向没有终点的旅程" type="application/atom+xml">
   
@@ -155,38 +155,45 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-杂谈（一）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-正则表达式（二）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      杂谈（一）
+      正则表达式（二）
     </h1>
   
 
         
-        <a href="/2017/03/26/杂谈（一）/" class="archive-article-date">
-  	<time datetime="2017-03-26T13:24:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-26</time>
+        <a href="/2017/05/21/正则表达式（二）/" class="archive-article-date">
+  	<time datetime="2017-05-21T14:43:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>摘要：翻开自己的笔记本看到了这篇文章，写于2015年农历八月十五。现在回想一下也不知道是什么情况下写的了。剩下的只有莫名的伤感。<br><a id="more"></a><br>正文：<br>港囧，一部自己感觉很纠结的片子。等了20年就是为了证明我的青春岁月真实的存在过。</p>
-<p>15岁觉得游泳难，放弃游泳，到18岁遇到一个你喜欢的人约你去游泳，你只好说“我不会耶”。18岁觉得英文难，放弃英文，28岁出现一个很棒但要会英文的工作，你只好说“我不会耶”。人生前期越嫌麻烦，越懒得学，后来就越可能错过让你动心的人和事，错过新风景。</p>
-<p>怎样度过人生的低潮期？安静地等待；好好睡觉；锻炼身体，无论何时好的体魄都用得着；和知心的朋友谈天，基本上不发牢骚，主要是回忆快乐的时光；多读书，看一些传记，增长知识，顺带还可瞧瞧别人倒霉的时候是怎么挺过去的；趁机做家务，把平时忙碌顾不上的活儿都干完。</p>
-<p>有时候，我们放不开不是因为失去，而是心疼自己的付出。</p>
-<p>以前我总是习惯焦虑，每次都期望有人指明我要走的路，可人终究是孤独的，每个人的人生都有别人参与，却都要自己完成。现在我已经学会面对和接受孤独，即使伤疤没磨练的足够硬实，也不再依赖别人给的铠甲。恩，孤独的人，都会很快长大。</p>
-<p>一座城市令你念念不忘，大抵是因为，那里有你深爱的人和一去不复返的青春。</p>
-<p>成长的很大一部分，是接受。接受分道扬镳，接受世事无常，接受孤独挫折，接受突如其来的无力感，接受自己的缺点。然后发自内心地去改变，找到一个平衡点。跟世界相处，首先是和自己相处。天黑开盏灯，落雨带把伞，难过归难过，但也不作死。</p>
-<p>如果你感到委屈，证明你还有底线；如果你感到迷茫，证明你还有追求；如果你感到痛苦，证明你还有力气；如果你感到绝望，证明你还有希望。从某种意义上，你永远都不会被打倒，因为你还有你。</p>
-<p>无论贫穷还是富足，开心的人最令人羡慕。</p>
-<p>有时像患了忧郁症一样，会突然心情不好。 偶尔像患了自闭症似的，不想说话也不想动。别人问起，也不知道该怎样回答。不是假装沉默，只是无力诉说。或许每个人都有一个死角，自己走不出来，别人也闯不进去，我把最深沉的秘密放在那里，你不懂我，我不怪你。</p>
-<p>比起并肩、牵手、接吻、很多人最喜欢的应该还是拥抱吧。当你用双臂紧紧把一个人抱在怀里时，没什么比那更能让人体会到什么叫做拥有了。</p>
-<p>感谢时光，不偏不倚，躲过了风口浪尖，让我恰好遇见你。</p>
+        <p>摘要：第二部分；总最全正则表达式总结：验证QQ号、手机号、Email、中文、邮编、身份证等。<br><a id="more"></a><br>正文：</p>
+<h2 id="支持正则表达式的-String-对象的方法"><a href="#支持正则表达式的-String-对象的方法" class="headerlink" title="支持正则表达式的 String 对象的方法"></a>支持正则表达式的 String 对象的方法</h2><h3 id="1-search-检索与正则表达式相匹配的值"><a href="#1-search-检索与正则表达式相匹配的值" class="headerlink" title="1.search 检索与正则表达式相匹配的值"></a>1.search 检索与正则表达式相匹配的值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">"Visit W3School!"</span><span class="built_in">console</span>.log(str.search(<span class="regexp">/W3School/</span>))<span class="comment">// OUTPUT:6</span></div></pre></td></tr></table></figure>
+<h3 id="2-match-找到一个或多个正则表达式的匹配。"><a href="#2-match-找到一个或多个正则表达式的匹配。" class="headerlink" title="2.match 找到一个或多个正则表达式的匹配。"></a>2.match 找到一个或多个正则表达式的匹配。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str=<span class="string">"1 plus 2 equal 3"</span><span class="built_in">console</span>.log(str.match(<span class="regexp">/\d+/g</span>))<span class="comment">// OUTPUT:1,2,3</span></div></pre></td></tr></table></figure>
+<p>###3.replace 替换与正则表达式匹配的子串。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">"Visit Microsoft!"</span><span class="built_in">console</span>.log(str.replace(<span class="regexp">/Microsoft/</span>, <span class="string">"W3School"</span>));<span class="comment">// OUTPUT:Visit W3School!</span></div><div class="line"><span class="comment">// 找重复项最多的字符个数var str = 'g21ss4aeba_ersb43sgnnsssstht6sss60snnsj8resw0_ss';// split : 将字符串转化为数组// sort : 对数组排序，ASCII// join : 将数组转化为字符串var str_new = str.split('').sort().join('');</span></div><div class="line"><span class="built_in">document</span>.write(str + <span class="string">'&lt;br&gt;'</span>);</div><div class="line"><span class="built_in">document</span>.write(str.split(<span class="string">''</span>) + <span class="string">'&lt;br&gt;'</span>);</div><div class="line"><span class="built_in">document</span>.write(str.split(<span class="string">''</span>).sort() + <span class="string">'&lt;br&gt;'</span>);</div><div class="line"><span class="built_in">document</span>.write(str.split(<span class="string">''</span>).sort().join(<span class="string">''</span>) + <span class="string">'&lt;br&gt;'</span>);<span class="comment">// 匹配字符，且重复这个字符，重复次数至少一次。var regexp = /(\w)\1+/g;var index = 0;var value = '';</span></div><div class="line"></div><div class="line">str_new.replace(regexp, <span class="function"><span class="keyword">function</span>(<span class="params">$<span class="number">0</span>, $<span class="number">1</span></span>) </span>&#123;</div><div class="line"><span class="comment">// document.write($0);</span></div><div class="line"><span class="comment">// document.write($1); </span></div><div class="line"><span class="keyword">if</span> (index &lt; $<span class="number">0.</span>length) &#123;</div><div class="line">index = $<span class="number">0.</span>length;</div><div class="line">value = $<span class="number">1</span>;</div><div class="line">&#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">document</span>.write(<span class="string">'重复项最多的字符是：'</span> + value + <span class="string">'，个数是：'</span> + index);<span class="comment">// OUTPUT:// 0012344668__aabbeeegghjnnnnrrssssssssssssssssttw// 重复项最多的字符是：s，个数是：16</span></div></pre></td></tr></table></figure></p>
+<h3 id="4-split-把字符串分割为字符串数组。"><a href="#4-split-把字符串分割为字符串数组。" class="headerlink" title="4.split 把字符串分割为字符串数组。"></a>4.split 把字符串分割为字符串数组。</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">"How are you doing today?"</span><span class="built_in">document</span>.write(str.split(<span class="regexp">/\s+/</span>));<span class="comment">// OUTPUT:How,are,you,doing,today?</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>经验：</strong></p>
+<ul>
+<li>验证格式（邮箱格式、IP格式）是否正确，用test ( );</li>
+<li>抓取星期（如所所有手机号），用exec( )、match( )<ul>
+<li>替换敏感词汇，用replace ( )<h2 id="常见的-正则表达式-校验"><a href="#常见的-正则表达式-校验" class="headerlink" title="常见的 正则表达式 校验"></a>常见的 正则表达式 校验</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 常见的 正则表达式 校验// QQ号、手机号、Email、是否是数字、去掉前后空格、是否存在中文、邮编、身份证var myRegExp = &#123;    // 检查字符串是否为合法QQ号码</span></div><div class="line"><span class="comment">// 1 首位不能是0  ^[1-9]</span></div><div class="line"><span class="comment">// 2 必须是 [5, 11] 位的数字  \d&#123;4, 9&#125;</span></div><div class="line">isQQ: <span class="function"><span class="keyword">function</span>(<span class="params">str</span>) </span>&#123;</div><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/^[1-9][0-9]&#123;4,9&#125;$/gim</span>;        <span class="keyword">if</span> (reg.test(str)) &#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'QQ号码格式输入正确'</span>);            <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'请输入正确格式的QQ号码'</span>);            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line">&#125;,    <span class="comment">// 检查字符串是否为合法手机号码 </span></div><div class="line">isPhone: <span class="function"><span class="keyword">function</span>(<span class="params">str</span>) </span>&#123;</div><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/^(0|86|17951)?(13[0-9]|15[012356789]|18[0-9]|14[57]|17[678])[0-9]&#123;8&#125;$/</span>;        <span class="keyword">if</span> (reg.test(str)) &#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'手机号码格式输入正确'</span>);            <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'请输入正确格式的手机号码'</span>);            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line">&#125;,    <span class="comment">// 检查字符串是否为合法Email地址 </span></div><div class="line">isEmail: <span class="function"><span class="keyword">function</span>(<span class="params">str</span>) </span>&#123;</div><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/</span>;        <span class="comment">// var reg = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;</span></div><div class="line"><span class="keyword">if</span> (reg.test(str)) &#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'Email格式输入正确'</span>);            <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'请输入正确格式的Email'</span>);            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line">&#125;,    <span class="comment">// 检查字符串是否是数字 </span></div><div class="line">isNumber: <span class="function"><span class="keyword">function</span>(<span class="params">str</span>) </span>&#123;</div><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/^\d+$/</span>;        <span class="keyword">if</span> (reg.test(str)) &#123;</div><div class="line"><span class="built_in">console</span>.log(str + <span class="string">'是数字'</span>);            <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line"><span class="built_in">console</span>.log(str + <span class="string">'不是数字'</span>);            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line">&#125;,    <span class="comment">// 去掉前后空格</span></div><div class="line">trim: <span class="function"><span class="keyword">function</span>(<span class="params">str</span>) </span>&#123;</div><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/^\s+|\s+$/g</span>;        <span class="keyword">return</span> str.replace(reg, <span class="string">''</span>);</div><div class="line">&#125;,    <span class="comment">// 检查字符串是否存在中文</span></div><div class="line">isChinese: <span class="function"><span class="keyword">function</span>(<span class="params">str</span>) </span>&#123;</div><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/[\u4e00-\u9fa5]/gm</span>;        <span class="keyword">if</span> (reg.test(str)) &#123;</div><div class="line"><span class="built_in">console</span>.log(str + <span class="string">' 中存在中文'</span>);            <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line"><span class="built_in">console</span>.log(str + <span class="string">' 中不存在中文'</span>);            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line">&#125;,    <span class="comment">// 检查字符串是否为合法邮政编码</span></div><div class="line"><span class="comment">// 起始数字不能为0，然后是5个数字  [1-9]\d&#123;5&#125;</span></div><div class="line">isPostcode: <span class="function"><span class="keyword">function</span>(<span class="params">str</span>) </span>&#123;</div><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/^[1-9]\d&#123;5&#125;$/g</span>;        <span class="comment">// var reg = /^[1-9]\d&#123;5&#125;(?!\d)$/;</span></div><div class="line"><span class="keyword">if</span> (reg.test(str)) &#123;</div><div class="line"><span class="built_in">console</span>.log(str + <span class="string">' 是合法的邮编格式'</span>);            <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line"><span class="built_in">console</span>.log(str + <span class="string">' 是不合法的邮编格式'</span>);            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line">&#125;,    <span class="comment">// 检查字符串是否为合法身份证号码</span></div><div class="line">isIDcard: <span class="function"><span class="keyword">function</span>(<span class="params">str</span>) </span>&#123;</div><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/^(^[1-9]\d&#123;7&#125;((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d&#123;3&#125;$)|(^[1-9]\d&#123;5&#125;[1-9]\d&#123;3&#125;((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d&#123;4&#125;)|\d&#123;3&#125;[Xx])$)$/</span>;        <span class="keyword">if</span> (reg.test(str)) &#123;</div><div class="line"><span class="built_in">console</span>.log(str + <span class="string">' 是合法的身份证号码'</span>);            <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line"><span class="built_in">console</span>.log(str + <span class="string">' 是不合法的身份证号码'</span>);            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line">&#125;,    <span class="comment">// 检查字符串是否为合法URL</span></div><div class="line">isURL: <span class="function"><span class="keyword">function</span>(<span class="params">str</span>) </span>&#123;</div><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/^https?:\/\/(([a-zA-Z0-9_-])+(\.)?)*(:\d+)?(\/((\.)?(\?)?=?&amp;?[a-zA-Z0-9_-](\?)?)*)*$/i</span>;        <span class="keyword">if</span> (reg.test(str)) &#123;</div><div class="line"><span class="built_in">console</span>.log(str + <span class="string">' 是合法的URL'</span>);            <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line"><span class="built_in">console</span>.log(str + <span class="string">' 是不合法的URL'</span>);            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line">&#125;,    <span class="comment">// 检查字符串是否为合法日期格式 yyyy-mm-dd</span></div><div class="line">isDate: <span class="function"><span class="keyword">function</span>(<span class="params">str</span>) </span>&#123;</div><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/^[1-2][0-9][0-9][0-9]-[0-1]&#123;0,1&#125;[0-9]-[0-3]&#123;0,1&#125;[0-9]$/</span>;        <span class="keyword">if</span> (reg.test(str)) &#123;</div><div class="line"><span class="built_in">console</span>.log(str + <span class="string">' 是合法的日期格式'</span>);            <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line"><span class="built_in">console</span>.log(str + <span class="string">' 是不合法的日期格式，yyyy-mm-dd'</span>);            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;<span class="comment">// 测试// console.log(myRegExp.isQQ('80583600'));// console.log(myRegExp.isPhone('17607160722'));// console.log(myRegExp.isEmail('80583600@qq.com'));// console.log(myRegExp.isNumber('100a'));// console.log(myRegExp.trim('  100  '));// console.log(myRegExp.isChinese('baixiaoming'));// console.log(myRegExp.isChinese('小明'));// console.log(myRegExp.isPostcode('412345'));// console.log(myRegExp.isIDcard('42091119940927001X'));// console.log(myRegExp.isURL('https://www.baidu.com/'));// console.log(myRegExp.isDate('2017-4-4'));</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="校验数字的表达式"><a href="#校验数字的表达式" class="headerlink" title="校验数字的表达式"></a>校验数字的表达式</h3><p>1 数字：^[0-9]<em>$<br>2 n位的数字：^\d{n}$<br>3 至少n位的数字：^\d{n,}$<br>4 m-n位的数字：^\d{m,n}$<br>5 零和非零开头的数字：^(0|[1-9][0-9]</em>)$<br>6 非零开头的最多带两位小数的数字：^([1-9][0-9]<em>)+(.[0-9]{1,2})?$<br>7 带1-2位小数的正数或负数：^(-)?\d+(.\d{1,2})?$<br>8 正数、负数、和小数：^(-|+)?\d+(.\d+)?$<br>9 有两位小数的正实数：^[0-9]+(.[0-9]{2})?$<br>10 有1~3位小数的正实数：^[0-9]+(.[0-9]{1,3})?$<br>11 非零的正整数：^[1-9]\d</em>$ 或 ^([1-9][0-9]<em>){1,3}$ 或 ^+?[1-9][0-9]</em>$<br>12 非零的负整数：^-[1-9][]0-9”<em>$ 或 ^-[1-9]\d</em>$<br>13 非负整数：^\d+$ 或 ^[1-9]\d<em>|0$<br>14 非正整数：^-[1-9]\d</em>|0$ 或 ^((-\d+)|(0+))$<br>15 非负浮点数：^\d+(.\d+)?$ 或 ^[1-9]\d<em>.\d</em>|0.\d<em>[1-9]\d</em>|0?.0+|0$<br>16 非正浮点数：^((-\d+(.\d+)?)|(0+(.0+)?))$ 或 ^(-([1-9]\d<em>.\d</em>|0.\d<em>[1-9]\d</em>))|0?.0+|0$<br>17 正浮点数：^[1-9]\d<em>.\d</em>|0.\d<em>[1-9]\d</em>$ 或 ^(([0-9]+.[0-9]<em>[1-9][0-9]</em>)|([0-9]<em>[1-9][0-9]</em>.[0-9]+)|([0-9]<em>[1-9][0-9]</em>))$<br>18 负浮点数：^-([1-9]\d<em>.\d</em>|0.\d<em>[1-9]\d</em>)$ 或 ^(-(([0-9]+.[0-9]<em>[1-9][0-9]</em>)|([0-9]<em>[1-9][0-9]</em>.[0-9]+)|([0-9]<em>[1-9][0-9]</em>)))$<br>19 浮点数：^(-?\d+)(.\d+)?$ 或 ^-?([1-9]\d<em>.\d</em>|0.\d<em>[1-9]\d</em>|0?.0+|0)$</p>
+<h3 id="校验字符的表达式"><a href="#校验字符的表达式" class="headerlink" title="校验字符的表达式"></a>校验字符的表达式</h3><p>1 汉字：^[\u4e00-\u9fa5]{0,}$<br>2 英文和数字：^[A-Za-z0-9]+$ 或 ^[A-Za-z0-9]{4,40}$<br>3 长度为3-20的所有字符：^.{3,20}$<br>4 由26个英文字母组成的字符串：^[A-Za-z]+$<br>5 由26个大写英文字母组成的字符串：^[A-Z]+$<br>6 由26个小写英文字母组成的字符串：^[a-z]+$<br>7 由数字和26个英文字母组成的字符串：^[A-Za-z0-9]+$<br>8 由数字、26个英文字母或者下划线组成的字符串：^\w+$ 或 ^\w{3,20}$<br>9 中文、英文、数字包括下划线：^[\u4E00-\u9FA5A-Za-z0-9_]+$<br>10 中文、英文、数字但不包括下划线等符号：^[\u4E00-\u9FA5A-Za-z0-9]+$ 或 ^[\u4E00-\u9FA5A-Za-z0-9]{2,20}$<br>11 可以输入含有^%&amp;’,;=?$\”等字符：[^%&amp;’,;=?$\x22]+<br>12 禁止输入含有~的字符：[^~\x22]+</p>
+<h3 id="特殊需求表达式"><a href="#特殊需求表达式" class="headerlink" title="特殊需求表达式"></a>特殊需求表达式</h3><p>1 Email地址：^\w+([-+.]\w+)<em>@\w+([-.]\w+)</em>.\w+([-.]\w+)<em>$<br>2 域名：[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(/.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+/.?<br>3 InternetURL：[a-zA-z]+://[^\s]</em> 或 ^<a href="http://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?$" target="_blank" rel="external">http://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?$</a><br>4 手机号码：^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$<br>5 电话号码(“XXX-XXXXXXX”、”XXXX-XXXXXXXX”、”XXX-XXXXXXX”、”XXX-XXXXXXXX”、”XXXXXXX”和”XXXXXXXX)：^((\d{3,4}-)|\d{3.4}-)?\d{7,8}$<br>6 国内电话号码(0511-4405222、021-87888822)：\d{3}-\d{8}|\d{4}-\d{7}<br>7 身份证号(15位、18位数字)：^\d{15}|\d{18}$<br>8 短身份证号码(数字、字母x结尾)：^([0-9]){7,18}(x|X)?$ 或 ^\d{8,18}|[0-9x]{8,18}|[0-9X]{8,18}?$<br>9 帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：^[a-zA-Z][a-zA-Z0-9_]{4,15}$<br>10 密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)：^[a-zA-Z]\w{5,17}$<br>11 强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间)：^(?=.<em>\d)(?=.</em>[a-z])(?=.<em>[A-Z]).{8,10}$<br>12 日期格式：^\d{4}-\d{1,2}-\d{1,2}<br>13 一年的12个月(01～09和1～12)：^(0?[1-9]|1[0-2])$<br>14 一个月的31天(01～09和1～31)：^((0?[1-9])|((1|2)[0-9])|30|31)$<br>15 钱的输入格式：<br>16    1.有四种钱的表示形式我们可以接受:”10000.00” 和 “10,000.00”, 和没有 “分” 的 “10000” 和 “10,000”：^[1-9][0-9]</em>$<br>17    2.这表示任意一个不以0开头的数字,但是,这也意味着一个字符”0”不通过,所以我们采用下面的形式：^(0|[1-9][0-9]<em>)$<br>18    3.一个0或者一个不以0开头的数字.我们还可以允许开头有一个负号：^(0|-?[1-9][0-9]</em>)$<br>19    4.这表示一个0或者一个可能为负的开头不为0的数字.让用户以0开头好了.把负号的也去掉,因为钱总不能是负的吧.下面我们要加的是说明可能的小数部分：^[0-9]+(.[0-9]+)?$<br>20    5.必须说明的是,小数点后面至少应该有1位数,所以”10.”是不通过的,但是 “10” 和 “10.2” 是通过的：^[0-9]+(.[0-9]{2})?$<br>21    6.这样我们规定小数点后面必须有两位,如果你认为太苛刻了,可以这样：^[0-9]+(.[0-9]{1,2})?$<br>22    7.这样就允许用户只写一位小数.下面我们该考虑数字中的逗号了,我们可以这样：^[0-9]{1,3}(,[0-9]{3})<em>(.[0-9]{1,2})?$<br>23    8.1到3个数字,后面跟着任意个 逗号+3个数字,逗号成为可选,而不是必须：^([0-9]+|[0-9]{1,3}(,[0-9]{3})</em>)(.[0-9]{1,2})?$<br>24    备注：这就是最终结果了,别忘了”+”可以用”<em>“替代如果你觉得空字符串也可以接受的话(奇怪,为什么?)最后,别忘了在用函数时去掉去掉那个反斜杠,一般的错误都在这里<br>25 xml文件：^([a-zA-Z]+-?)+[a-zA-Z0-9]+\.[x|X][m|M][l|L]$<br>26 中文字符的正则表达式：[\u4e00-\u9fa5]<br>27 双字节字符：[^\x00-\xff]    (包括汉字在内，可以用来计算字符串的长度(一个双字节字符长度计2，ASCII字符计1))<br>28 空白行的正则表达式：\n\s</em>\r    (可以用来删除空白行)<br>29 HTML标记的正则表达式：&lt;(\S<em>?)[^&gt;]</em>&gt;.<em>?&lt;/\1&gt;|&lt;.</em>? /&gt;    (网上流传的版本太糟糕，上面这个也仅仅能部分，对于复杂的嵌套标记依旧无能为力)<br>30 首尾空白字符的正则表达式：^\s<em>|\s</em>$或(^\s<em>)|(\s</em>$)    (可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等)，非常有用的表达式)<br>31 腾讯QQ号：[1-9][0-9]{4,}    (腾讯QQ号从10000开始)<br>32 中国邮政编码：[1-9]\d{5}(?!\d)    (中国邮政编码为6位数字)<br>33 IP地址：\d+.\d+.\d+.\d+    (提取IP地址时有用)<br>34 IP地址：((?:(?:25[0-5]|2[0-4]\d|[01]?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d?\d))  </p>
 
       
 
@@ -221,24 +228,13 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">感悟</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">RegExp 正则表达式</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/掠影生活/" class="article-tag-list-link color5">掠影生活</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -288,7 +284,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://liuyu595.github.io/2017/03/26/杂谈（一）/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://liuyu595.github.io/2017/05/21/正则表达式（二）/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -302,18 +298,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/03/29/《javaScript设计模式与开发实践》（一）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          《javaScript设计模式与开发实践》（一）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/22/Three-js之小白入坑（一）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Three.js之小白入坑（一）</div>
+    <a href="/2017/05/21/正则表达式（一）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">正则表达式（一）</div>
       <i class="icon-circle-right"></i>
     </a>
   
