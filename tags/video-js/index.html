@@ -6,18 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://liuyu595.github.io">
-  <title>brew安装mongoDB下的坑 | 奔向没有终点的旅程</title>
+  <title>Tag: video.js | 奔向没有终点的旅程</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天放假三天，趁此机会向着大前端迈进～！大刀阔斧～！">
-<meta property="og:type" content="article">
-<meta property="og:title" content="brew安装mongoDB下的坑">
-<meta property="og:url" content="https://liuyu595.github.io/2017/04/02/brew安装mongoDB下的坑/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="奔向没有终点的旅程">
+<meta property="og:url" content="https://liuyu595.github.io/tags/video-js/index.html">
 <meta property="og:site_name" content="奔向没有终点的旅程">
-<meta property="og:description" content="今天放假三天，趁此机会向着大前端迈进～！大刀阔斧～！">
-<meta property="og:updated_time" content="2017-04-02T03:10:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="brew安装mongoDB下的坑">
-<meta name="twitter:description" content="今天放假三天，趁此机会向着大前端迈进～！大刀阔斧～！">
+<meta name="twitter:title" content="奔向没有终点的旅程">
   
     <link rel="alternative" href="/atom.xml" title="奔向没有终点的旅程" type="application/atom+xml">
   
@@ -155,178 +151,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-brew安装mongoDB下的坑" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      brew安装mongoDB下的坑
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/05/24/H5播放器源码解读（video-js）/" class="archive-article-date">
+  	<time datetime="2017-05-24T14:02:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-24</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/05/24/H5播放器源码解读（video-js）/">H5播放器源码解读video.js(一)</a>
     </h1>
   
 
-        
-        <a href="/2017/04/02/brew安装mongoDB下的坑/" class="archive-article-date">
-  	<time datetime="2017-04-02T02:49:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天放假三天，趁此机会向着大前端迈进～！大刀阔斧～！<br><a id="more"></a><br>欣喜若狂～！终于装上mongoDB了～！运行了下！启动失败了～！（有点小失落，虽然对于新的东西刚刚接触后总会出现点小问题。）</p>
-<blockquote>
-<p>MongoDB shell version v3.4.3<br>connecting to: mongodb://127.0.0.1:27017<br>2017-04-02T10:43:39.099+0800 W NETWORK  [thread1] Failed to connect to 127.0.0.1:27017, in(checking socket for error after poll), reason: Connection refused<br>2017-04-02T10:43:39.101+0800 E QUERY    [thread1] Error: couldn’t connect to server 127.0.0.1:27017, connection attempt failed :<br>connect@src/mongo/shell/mongo.js:237:13<br>@ (connect):1:6<br>exception: connect failed</p>
-</blockquote>
-<p>启动失败了，遇到这个原因纠结了一上午时间终于找到了结决的办法了。</p>
-<p>先说下问题出现的原因：当mongodb service 没有运行的时候会发生这样的错误。<br>最后找到了如下方法解决<br>然后 在bash 输入</p>
-<blockquote>
-<p>brew services start mongodb<br>mongo        //进入数据库<br>回车后成功了～！</p>
-<p>liuyudeMBP:~ liuyu$ mongo<br>MongoDB shell version v3.4.3<br>connecting to: mongodb://127.0.0.1:27017<br>MongoDB server version: 3.4.3<br>Welcome to the MongoDB shell.<br>For interactive help, type “help”.<br>For more comprehensive documentation, see<br><a href="http://docs.mongodb.org/" target="_blank" rel="external">http://docs.mongodb.org/</a><br>Questions? Try the support group<br><a href="http://groups.google.com/group/mongodb-user" target="_blank" rel="external">http://groups.google.com/group/mongodb-user</a><br>Server has startup warnings:<br>2017-04-02T10:46:51.655+0800 I CONTROL  [initandlisten]<br>2017-04-02T10:46:51.655+0800 I CONTROL  [initandlisten] <strong> WARNING: Access control is not enabled for the database.<br>2017-04-02T10:46:51.655+0800 I CONTROL  [initandlisten] </strong>          Read and write access to data and configuration is unrestricted.<br>2017-04-02T10:46:51.655+0800 I CONTROL  [initandlisten]<br>^C<br>bye</p>
-</blockquote>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mongoDB</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">video.js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/数据库/" class="article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
+          
 
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://liuyu595.github.io/2017/04/02/brew安装mongoDB下的坑/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/04/05/node-js之mongoDB数据库连接思路/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          node.js之mongoDB数据库连接思路
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/03/30/《javaScript设计模式与开发实践》（二）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">《javaScript设计模式与开发实践》（二）</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-
-  
-    <div class="duoshuo"></div>
+    </div></section>
   
 
-
+    
 
 
           </div>
@@ -349,9 +227,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
